@@ -13,7 +13,7 @@
 			$directorio = '../../../';
 		}
 	}
-	
+
 	//Funcion migas de pan
 	function migasdepan($migas){
 		$migasdepan = explode("#",$migas);
@@ -36,7 +36,7 @@
 			}
 		}
                 echo '</ol>';
-                
+
 	}
 ?>
 
@@ -68,7 +68,7 @@
 					}
 			});
 		}
-		// Login 1 
+		// Login 1
 		$('#loginput').click(function(){
 			var user = {
 				user : $('#userinput').val(),
@@ -82,8 +82,8 @@
 				}else if($('#passinput').val()== ""){
 					alert('Password is empty!', 'red');
 				}
-				
-				
+
+
 			}else{
 				$.ajax({
 					type: "POST",
@@ -95,12 +95,12 @@
 							alert('Invalid user or password!', 'red');
 						}else if(response == 'succes'){
 							alert('Welcome to animaster!', 'green');
-                
+
 							setInterval(function() {
 								var url = "<?php echo $directorio?>home";
 								location.href=url;
 							}, 1000);
-							
+
 						}
 					}
 				});
@@ -120,8 +120,8 @@
 				}else if($('#passinput2').val()== ""){
 					alert('Password is empty!', 'red');
 				}
-				
-				
+
+
 			}else{
 				$.ajax({
 					type: "POST",
@@ -133,12 +133,12 @@
 							alert('Invalid user or password!', 'red');
 						}else if(response == 'succes'){
 							alert('Welcome to animaster!', 'green');
-							
+
 							setInterval(function() {
 								var url = "<?php echo $directorio?>home";
 								location.href=url;
 							}, 1000);
-							
+
 						}
 					}
 				});
@@ -161,7 +161,7 @@
         </li>
         <li class="pull-right">
             <ul class="top-menu">
-				
+
 				<li class="dropdown">
 					<a class="p-5 waves-effect" data-toggle="dropdown" href="#">
 						<i class="tm-icon zmdi zmdi-notifications-none"></i>
@@ -176,11 +176,11 @@
 						</div>
 					</div>
 				</li>
-				
+
                 <li class="dropdown">
                     <a class="p-5 waves-effect" data-toggle="dropdown" href="#"><i class="tm-icon zmdi zmdi-more-vert"></i></a>
                     <ul class="dropdown-menu dm-icon pull-right">
-					
+
 						<?php
 						if(!isset($_SESSION['user'])){
 							echo '
@@ -190,9 +190,9 @@
 						if(isset($_SESSION['user'])){
 							echo '
 								<li><a href="'.$directorio.'sessions/destroy"><i class="zmdi zmdi-time-restore"></i> Logout</a></li>
-								
-							'; 
-						} 
+
+							';
+						}
 						?>
 						<!-- <li role="separator" class="divider"></li>
 						<li class="dropdown-header">Actions</li> -->
@@ -202,31 +202,31 @@
             </ul>
         </li>
     </ul>
-	
+
     <!-- Top Search -->
     <div class="clearfix">
     </div>
-	
+
     <!-- Top Menu -->
     <nav class="ha-menu">
         <ul>
             <?php
 				//Menu izquierda
 				if(!isset($_SESSION['user'])){
-                    echo '  
+                    echo '
 						<li class="waves-effect"><a href="'.$directorio.'sessions/new">Play now</a></li>
 						<li class="waves-effect"><a href="'.$directorio.'home">home</a></li>
-						
+
 					';
                 }
                 if(isset($_SESSION['user'])){
 					echo '
 						<li class="waves-effect"><a href="'.$directorio.'home">home</a></li>
-						
-						
-					'; 
-                } 
-				
+
+
+					';
+                }
+
 				//Menu derecha
                 if(!isset($_SESSION['user'])){
                     echo '
@@ -245,11 +245,11 @@
 						</ul>
 					</li>
 					';
-					
+
                 }
                 if(isset($_SESSION['user'])){
-					echo '  <li class="waves-effect pull-right idplr"><a href="'.$directorio.'account/">Hola, '.$value['user_name'].'!</a></li>'; 
-                } 
+					echo '  <li class="waves-effect pull-right idplr"><a href="'.$directorio.'account/">Hola, '.$value['user_name'].'!</a></li>';
+                }
             ?>
         </ul>
     </nav>
@@ -260,10 +260,10 @@
     if (strpos($self,"Phantom-RPG/index.php")) {
         //none
     }else if (strpos($self,"Animaster/sessions/new")) {
-        //migasdepan($migas); 
+        //migasdepan($migas);
     }else{
         //imprimim migas de pan
-        //migasdepan($migas); 
+        //migasdepan($migas);
     }
 
 ?>
@@ -278,6 +278,4 @@
 
             });
 	</script>
-</div>
-    
-            
+</div>          

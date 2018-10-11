@@ -5,7 +5,7 @@ $self = $_SERVER['PHP_SELF']; // $self --> Lugar actual visitado
 $status = session_status();
 if($status == PHP_SESSION_NONE){
 	//aqui no hay sesion activa
-    session_start(); 
+    session_start();
 }
 
 //$value --> Login Session.
@@ -58,12 +58,12 @@ if(isset($_SESSION['user'])){
 			// Fonts
 			echo '<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">';
 			echo '<link href="https://fonts.googleapis.com/css?family=Rokkitt:700,400" rel="stylesheet" type="text/css">';
-			
+
 			echo mkhead($dir, $depth);
 			function mkhead($dir, $depth) {
 				$response = '';
 				$directorio = '';
-				
+
 				if ($dir == 'root'){
 					$directorio = 'Public/';
 				}else{
@@ -75,11 +75,11 @@ if(isset($_SESSION['user'])){
 						$directorio = '../../../Public/';
 					}
 				}
-				
+
 				$response = '
-				
+
 				<!-- Libs -->
-				<script src="'.$directorio.'libs/jquery-1.12.3.min.js"></script> 
+				<script src="'.$directorio.'libs/jquery-1.12.3.min.js"></script>
                 <script src="'.$directorio.'libs/bootstrap-notify.js"></script>
                 <script src="'.$directorio.'libs/desktop-notify.js"></script>
                 <script src="'.$directorio.'libs/waves.js"></script>
@@ -92,28 +92,28 @@ if(isset($_SESSION['user'])){
                 <link href="'.$directorio.'libs/summernote.css" rel="stylesheet">
 				<script src="'.$directorio.'libs/three.min.js"></script>
 				<script src="'.$directorio.'libs/cannon.min.js"></script>
-				
+
 				<!-- Bootstrap Core CSS & Js -->
                 <link href="'.$directorio.'libs/bootstrap-3.3.6/css/bootstrap.css" rel="stylesheet">
                 <script src="'.$directorio.'libs/bootstrap-3.3.6/js/bootstrap.js"></script>
-				
+
 				<!-- FontAwesome -->
                 <LINK REL=StyleSheet HREF="'.$directorio.'libs/fontawesome-5.3.1/css/all.min.css" TYPE="text/css" MEDIA=screen>
 				<LINK REL=StyleSheet HREF="'.$directorio.'libs/fontawesome-5.3.1/css/v4-shims.min.css" TYPE="text/css" MEDIA=screen>
                 <script src="'.$directorio.'libs/fontawesome-5.3.1/js/all.min.js"></script>
                 <script src="'.$directorio.'libs/fontawesome-5.3.1/js/v4-shims.min.js"></script>
-				
+
 				<!-- material Design Iconic Font -->
                 <LINK REL=StyleSheet HREF="'.$directorio.'libs/material-design-iconic-font/css/material-design-iconic-font.css" TYPE="text/css" MEDIA=screen>
-                
+
 				<!-- Theme Css -->
 				<link href="'.$directorio.'theme/theme.css?123" rel="stylesheet">
                 <script src="'.$directorio.'theme/template.js"></script>
-                
+
 				<!-- Favicon -->
                 <link rel="shortcut icon" href="'.$directorio.'icon/favicon.ico">
 				';
-				
+
 				return $response;
 			}
         ?>
