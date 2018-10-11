@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dice Roller</title>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="jquery-1.12.3.min.js"></script>
+  <link rel="import" href="dice-roller.html">
+</head>
+
+<body unresolved touch-action="auto">
+<example-usage></example-usage>
+<polymer-element name="dice-roller" attributes="diceColor dotColor reset rollDie">
+  <template>
+    <link rel="stylesheet" href="dice-roller.css">
+    <div id="canvas">
+    </div>
+  </template>
+</polymer-element>
+
+<script src="bower_components/three.js/three.js"></script>
+<script src="bower_components/physijs/physi.js"></script>
+<script src="DiceRoller.js"></script>
+<script>
+  Polymer('dice-roller', {
+    domReady: function () {
+      DiceRoller.createScene(this.$.canvas);
+      DiceRoller.diceColor = this.diceColor || DiceRoller.diceColor;
+      DiceRoller.dotColor = this.dotColor || DiceRoller.dotColor;
+    },
+
+    reset: function () {
+      DiceRoller.reset();
+    },
+
+    rollDie: function () {
+      DiceRoller.rollDie();
+    }
+  });
+
+</script>
+
+<polymer-element name="example-usage" noscript>
+  <template>
+    <div id="controls">
+      <button on-click="{{ rollDie }}">Roll a die</button>
+      <button on-click="{{ reset }}">Reset</button>
+    </div>
+
+      <dice-roller style="width:500px;height:500px;position:relative;"
+                   reset="{{ reset }}"
+                   rollDie="{{ rollDie }}"
+                   diceColor="#458B00">
+      </dice-roller>
+  </template>
+</polymer-element>
+
+</body>
+
+</html>

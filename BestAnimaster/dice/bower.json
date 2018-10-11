@@ -1,0 +1,20 @@
+{
+  "name": "dice-roller",
+  "version": "0.0.1",
+  "authors": [
+    "eitak"
+  ],
+  "description": "Dice roller WebGL Polymer element",
+  "main": "dice-roller.html",
+  "keywords": [
+    "Polymer",
+    "WebGL",
+    "web-components"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "polymer": "~0.5.2",
+    "three.js": "*",
+    "physijs": "*"
+  }
+}
