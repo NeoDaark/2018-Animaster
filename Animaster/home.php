@@ -1,4 +1,4 @@
-<!-- Home -- Header content box -->
+<!-- Home - Header content box  -->
 <?php
 require_once 'System/config.php';
 $title='Info';
@@ -16,8 +16,4 @@ include "Public/layouts/head.php";
 </div>
 
 <!-- Footer content box -->
-<?php include "Public/layouts/footer.php";?> 
-
-
-
-
+<?php include "Public/layouts/footer.php";?>
