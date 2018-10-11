@@ -28,7 +28,7 @@
 						echo '</div>';
 					echo '</a>';
                     while($archivo = readdir($directorio)){    
-                        if(is_dir($archivo) && $archivo!="." && $archivo!=".." && $archivo!="Public" && $archivo!="404"){
+                        if(is_dir($archivo) && $archivo!="." && $archivo!=".." && $archivo!="Public" && $archivo!="404" && $archivo!=".git"){
                             echo '<a href="'.$archivo.'"/>';
                                 echo '<div class="user-info">';
                                     echo '<span>'.$archivo.'</span>';
@@ -40,7 +40,7 @@
                     closedir($directorio); 
                 ?>
                 <div class="user-info"><strong>By: </strong>
-                    <span>David Bonet Daga</span>
+                    <span>Neepii</span>
                 </div>
             </div> 
         </div>
