@@ -1,13 +1,11 @@
 <?php
 $self = $_SERVER['PHP_SELF']; // $self --> Lugar actual visitado
 
-
 $status = session_status();
 if($status == PHP_SESSION_NONE){
 	//aqui no hay sesion activa
     session_start();
 }
-
 //$value --> Login Session.
 if(isset($_SESSION['user'])){
         $value=$_SESSION['user'];
@@ -19,114 +17,91 @@ if(isset($_SESSION['user'])){
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
-        <script>
-            function NotificationCenter($scope) {
-                var permissionLevels = {};
-                permissionLevels[notify.PERMISSION_GRANTED] = 0;
-                permissionLevels[notify.PERMISSION_DEFAULT] = 1;
-                permissionLevels[notify.PERMISSION_DENIED] = 2;
-                $scope.isSupported = notify.isSupported;
-                $scope.permissionLevel = permissionLevels[notify.permissionLevel()];
-                $scope.getClassName = function() {
-                    if ($scope.permissionLevel === 0) {
-                        return "allowed";
-                    } else if ($scope.permissionLevel === 1) {
-                        return "default";
-                    } else {
-                        return "denied";
-                    }
-                }
-                $scope.callback = function() {
-                    console.log("test");
-                }
-                $scope.requestPermissions = function() {
-                    notify.requestPermission(function() {
-                        $scope.$apply($scope.permissionLevel = permissionLevels[notify.permissionLevel()]);
-                    })
-                }
-            }
-            function DesktopNotifyshow($title, $body, $icon) {
-                notify.createNotification($title, {body:$body, icon: $icon});
-            }
-        </script>
         <?php
-            $subtitle='| Animaster';
-            echo '<title>'.$title.' '.$subtitle.'</title>';
-			echo '<meta charset="UTF-8">';
-			echo '<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">';
-			// Fonts
-			echo '<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css">';
-			echo '<link href="https://fonts.googleapis.com/css?family=Rokkitt:700,400" rel="stylesheet" type="text/css">';
+          $subtitle='| Animaster';
+          echo '
+          <title>'.$title.' '.$subtitle.'</title>
+          <meta charset="utf-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+          ';
+  	      echo mkhead($dir, $depth);
+          function mkhead($dir, $depth) {
+            $response = '';
+            $directorio = '';
+            if ($dir == 'root'){
+              $directorio = '';
+            }else{
+              if($depth == 1){
+                $directorio = '../';
+              }else if($depth == 2){
+                $directorio = '../../';
+              }else if($depth == 3){
+                $directorio = '../../../';
+              }
+            }
+            $dirpublic = $directorio . 'Public/';
 
-			echo mkhead($dir, $depth);
-			function mkhead($dir, $depth) {
-				$response = '';
-				$directorio = '';
+  				$response = '
+          <!-- libs styles -->
+          <link rel="stylesheet" href="'.$dirpublic.'libs/bower_components/material-design-iconic-font/dist/css/material-design-iconic-font.min.css">
+          <link rel="stylesheet" href="'.$dirpublic.'libs/bower_components/animate.css/animate.min.css">
+          <link rel="stylesheet" href="'.$dirpublic.'libs/bower_components/jquery.scrollbar/jquery.scrollbar.css">
+          <link rel="stylesheet" href="'.$dirpublic.'libs/bower_components/fullcalendar/dist/fullcalendar.min.css">
+          <link rel="stylesheet" href="'.$dirpublic.'libs/fontawesome-5.3.1/css/all.min.css">
+          <link rel="stylesheet" href="'.$dirpublic.'libs/fontawesome-5.3.1/css/v4-shims.min.css">
+          <link rel="stylesheet" href="'.$dirpublic.'libs/waves.css">
+          <link rel="stylesheet" href="'.$dirpublic.'libs/bower_components/sweetalert2/dist/sweetalert2.min.css">
 
-				if ($dir == 'root'){
-					$directorio = 'Public/';
-				}else{
-					if($depth == 1){
-						$directorio = '../Public/';
-					}else if($depth == 2){
-						$directorio = '../../Public/';
-					}else if($depth == 3){
-						$directorio = '../../../Public/';
-					}
-				}
+          <!-- App styles -->
+          <link rel="stylesheet" href="'.$dirpublic.'theme/app.min.css">
+          <link rel="stylesheet" href="'.$dirpublic.'theme/theme.css">
 
-				$response = '
+          <!-- Javascript -->
+          <!-- libs -->
+          <script src="'.$dirpublic.'libs/bower_components/jquery/dist/jquery.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/popper.js/dist/umd/popper.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/flot/jquery.flot.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/flot/jquery.flot.resize.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/flot.curvedlines/curvedLines.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/jqvmap/dist/jquery.vmap.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/jqvmap/dist/maps/jquery.vmap.world.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/jquery.easy-pie-chart/dist/jquery.easypiechart.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/salvattore/dist/salvattore.min.js"></script>
+          <script src="'.$dirpublic.'libs/jquery.sparkline/jquery.sparkline.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/moment/min/moment.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/fullcalendar/dist/fullcalendar.min.js"></script>
+          <script src="'.$dirpublic.'libs/waves.js"></script>
+  				<script src="'.$dirpublic.'libs/three.min.js"></script>
+  				<script src="'.$dirpublic.'libs/cannon.min.js"></script>
+          <script src="'.$dirpublic.'libs/fontawesome-5.3.1/js/all.min.js"></script>
+          <script src="'.$dirpublic.'libs/fontawesome-5.3.1/js/v4-shims.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
+          <script src="'.$dirpublic.'libs/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
 
-				<!-- Libs -->
-				<script src="'.$directorio.'libs/jquery-1.12.3.min.js"></script>
-                <script src="'.$directorio.'libs/bootstrap-notify.js"></script>
-                <script src="'.$directorio.'libs/desktop-notify.js"></script>
-                <script src="'.$directorio.'libs/waves.js"></script>
-                <link href="'.$directorio.'libs/waves.css" rel="stylesheet">
-                <script src="'.$directorio.'libs/sweetalert.min.js"></script>
-                <link href="'.$directorio.'libs/sweetalert.css" rel="stylesheet">
-                <script src="'.$directorio.'libs/bootstrap-select.js"></script>
-                <link href="'.$directorio.'libs/bootstrap-select.css" rel="stylesheet">
-                <script src="'.$directorio.'libs/summernote-updated.min.js"></script>
-                <link href="'.$directorio.'libs/summernote.css" rel="stylesheet">
-				<script src="'.$directorio.'libs/three.min.js"></script>
-				<script src="'.$directorio.'libs/cannon.min.js"></script>
 
-				<!-- Bootstrap Core CSS & Js -->
-                <link href="'.$directorio.'libs/bootstrap-3.3.6/css/bootstrap.css" rel="stylesheet">
-                <script src="'.$directorio.'libs/bootstrap-3.3.6/js/bootstrap.js"></script>
+          <!-- App functions and actions -->
+          <script src="'.$dirpublic.'theme/app.min.js"></script>
+          <script src="'.$dirpublic.'theme/theme.js"></script>
 
-				<!-- FontAwesome -->
-                <LINK REL=StyleSheet HREF="'.$directorio.'libs/fontawesome-5.3.1/css/all.min.css" TYPE="text/css" MEDIA=screen>
-				<LINK REL=StyleSheet HREF="'.$directorio.'libs/fontawesome-5.3.1/css/v4-shims.min.css" TYPE="text/css" MEDIA=screen>
-                <script src="'.$directorio.'libs/fontawesome-5.3.1/js/all.min.js"></script>
-                <script src="'.$directorio.'libs/fontawesome-5.3.1/js/v4-shims.min.js"></script>
-
-				<!-- material Design Iconic Font -->
-                <LINK REL=StyleSheet HREF="'.$directorio.'libs/material-design-iconic-font/css/material-design-iconic-font.css" TYPE="text/css" MEDIA=screen>
-
-				<!-- Theme Css -->
-				<link href="'.$directorio.'theme/theme.css?123" rel="stylesheet">
-                <script src="'.$directorio.'theme/template.js"></script>
-
-				<!-- Favicon -->
-                <link rel="shortcut icon" href="'.$directorio.'icon/favicon.ico">
-				';
-
-				return $response;
-			}
+  				<!-- Favicon -->
+          <link rel="shortcut icon" href="'.$directorio.'icon/favicon.ico">
+  				';
+          return $response;
+          }
         ?>
     </head>
-    <body class="customcontentbody">
-        <div class="page-loader bgm-white">
-            <div class="preloader pls-blue">
-                <svg class="pl-circular " viewBox="25 25 50 50">
-                    <circle class="plc-path" cx="50" cy="50" r="20"></circle>
+    <body data-ma-theme="cyan">
+      <main class="main main--alt">
+        <div class="page-loader">
+            <div class="page-loader__spinner">
+                <svg viewBox="25 25 50 50">
+                    <circle cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10" />
                 </svg>
-                <p>Please wait...</p>
             </div>
         </div>
-		<?php
-			include "menu.php";
-		?>
+    		<?php
+    			include "menu.php";
+    		?>
