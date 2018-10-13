@@ -93,6 +93,7 @@ if(isset($_SESSION['user'])){
           }
         ?>
     </head>
+    <div class="overlay"></div>
     <body data-ma-theme="cyan">
       <main class="main main--alt">
         <div class="page-loader">

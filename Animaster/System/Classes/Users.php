@@ -7,7 +7,7 @@
         private $user_mail;
         private $user_pass;
         private $user_rol;
-        
+
         //METODES
         public function add(){
             $db = new connexio();
@@ -40,7 +40,7 @@
             $db->query($sql);
             return $result;
         }
-        
+
         public function userflag($id, $user_name){
             $db = new connexio();
             $sql = "SELECT * FROM users WHERE user_name = '$user_name' and id_user= '$id'";
@@ -63,7 +63,7 @@
                 return false;
             }
         }
-        
+
         public function mailflag($id, $user_mail){
             $db = new connexio();
             $sql = "SELECT * FROM users WHERE user_mail = '$user_mail' and id_user= '$id'";
@@ -86,10 +86,10 @@
                 return false;
             }
         }
-        
-        public function verificar_login($user_name,$user_pass){ 
+
+        public function verificar_login($user_mail,$user_pass){
             $db = new connexio();
-            $sql = "SELECT * FROM users WHERE user_name = '$user_name' and user_pass = '$user_pass'";
+            $sql = "SELECT * FROM users WHERE user_mail = '$user_mail' and user_pass = '$user_pass'";
             $query = $db->query($sql);
             $count = 0;
             $datos = "";
@@ -134,7 +134,7 @@
             $db->close();
             return $rtn;
         }
-        public function return_user($id){ 
+        public function return_user($id){
             $db = new connexio();
             $sql = "SELECT * FROM users WHERE id_user = '$id'";
             $query = $db->query($sql);
@@ -154,7 +154,7 @@
                 return "error";
             }
         }
-        
+
         public function buscusers($search){
             $db = new connexio();
             $sql = "SELECT id_user, user_name FROM users where user_name  LIKE '%".$search."%' LIMIT 5";
@@ -166,8 +166,8 @@
             $db->close();
             return $rtn;
         }
-        
-        
+
+
         //CONSTRUCTORS
         function __construct(){
             $args = func_get_args();
@@ -184,7 +184,7 @@
             $this->user_pass = "";
             $this->user_rol = "";
         }
-        
+
         function __construct4($a2, $a3, $a4, $a5){
             $this->id_user=0;
             $this->user_name = $a2;
@@ -192,7 +192,7 @@
             $this->user_pass = $a4;
             $this->user_rol = $a5;
         }
-           
+
         //METODES SET
         public function setid_user($id_user) {
             $this->id_user = $id_user;
@@ -209,8 +209,8 @@
         public function setuser_rol($user_rol) {
             $this->user_rol = $user_rol;
         }
-        
-        //METODES GET 
+
+        //METODES GET
         public function getid_user() {
             return $this->id_user;
         }

@@ -1,3 +1,7 @@
+<?php
+	header("Location: /Animaster/");
+	die();
+?>
 <html>
     <head>
         <title>Localhost</title>

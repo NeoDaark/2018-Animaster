@@ -1,25 +1,18 @@
 <!-- Header content box -->
 <?php
 require_once '../System/config.php';
-$title='SignUp';
-$migas='#SignUp|signup.php';
-$dir = 'account';
+$title='Editor';
+$dir = 'editor';
 $depth = '1';
-
-
-
 include "../Public/layouts/head.php";?>
 
 <script>
-    $(function() {
-      
+    $(document).ready(function(){
+
     });
 </script>
-<!-- Body content box -->
-<div class="container" >
-	<div class="clear" style="height: 40px;"></div>
+<!-- Body box -->
 
-</div>
 
 <!-- Footer content box -->
 <?php include "../Public/layouts/footer.php";?>

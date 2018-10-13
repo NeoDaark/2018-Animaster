@@ -1,5 +1,4 @@
 <?php
-
 	//Directorio --> enlaces del menu
 	$directorio = '';
 	if ($dir == 'root'){
@@ -14,91 +13,10 @@
 		}
 	}
 ?>
-<script>
-    $( document ).ready(function() {
-			// Login 1
-			$('#loginput').click(function(){
-				var user = {
-					user : $('#userinput').val(),
-					pass : $('#passinput').val()
-				};
-				if ($('#userinput').val()== "" || $('#passinput').val()== ""){
-					if($('#userinput').val()== "" && $('#passinput').val()== ""){
-						alert('User and password are empty!', 'red');
-					}else if ($('#userinput').val()== ""){
-						alert('User is empty!', 'red');
-					}else if($('#passinput').val()== ""){
-						alert('Password is empty!', 'red');
-					}
-
-
-				}else{
-					$.ajax({
-						type: "POST",
-						url: "<?php echo $directorio?>System/Protocols/Users_Validate.php",
-						data: user,
-						success: function (response) {
-							console.log(response);
-							if(response == 'fail'){
-								alert('Invalid user or password!', 'red');
-							}else if(response == 'succes'){
-								alert('Welcome to animaster!', 'green');
-
-								setInterval(function() {
-									var url = "<?php echo $directorio?>home";
-									location.href=url;
-								}, 1000);
-
-							}
-						}
-					});
-				}
-			});
-			// Login 2
-			$('#loginput2').click(function(){
-				var user = {
-					user : $('#userinput2').val(),
-					pass : $('#passinput2').val()
-				};
-				if ($('#userinput2').val()== "" || $('#passinput2').val()== ""){
-					if($('#userinput2').val()== "" && $('#passinput2').val()== ""){
-						alert('User and password are empty!', 'red');
-					}else if ($('#userinput2').val()== ""){
-						alert('User is empty!', 'red');
-					}else if($('#passinput2').val()== ""){
-						alert('Password is empty!', 'red');
-					}
-
-
-				}else{
-					$.ajax({
-						type: "POST",
-						url: "<?php echo $directorio?>System/Protocols/Users_Validate.php",
-						data: user,
-						success: function (response) {
-							console.log(response);
-							if(response == 'fail'){
-								alert('Invalid user or password!', 'red');
-							}else if(response == 'succes'){
-								alert('Welcome to animaster!', 'green');
-
-								setInterval(function() {
-									var url = "<?php echo $directorio?>home";
-									location.href=url;
-								}, 1000);
-
-							}
-						}
-					});
-				}
-			});
-    });
-</script>
-
 <!-- Aqui empieza el header -->
 <header class="header">
 		<div class="header__logo">
-				<h1><a href="index-2.html">Animaster</a></h1>
+				<h1><a href="<?php echo $directorio; ?>home">Animaster</a></h1>
 		</div>
 
 		<form class="search">
@@ -112,7 +30,7 @@
 				<li class="hidden-xl-up"><a href="#" data-ma-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
 
 				<li class="dropdown">
-						<a href="#" data-toggle="dropdown"><i class="zmdi zmdi-email"></i></a>
+						<a href="#" data-toggle="dropdown" class="waves-effect"><i class="zmdi zmdi-email"></i></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
 								<div class="listview listview--hover">
 										<div class="listview__header">
@@ -188,7 +106,7 @@
 				</li>
 
 				<li class="dropdown top-nav__notifications">
-						<a href="#" data-toggle="dropdown" class="top-nav__notify">
+						<a href="#" data-toggle="dropdown" class="top-nav__notify waves-effect">
 								<i class="zmdi zmdi-notifications"></i>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
@@ -281,7 +199,7 @@
 				</li>
 
 				<li class="dropdown hidden-xs-down">
-						<a href="#" data-toggle="dropdown"><i class="zmdi zmdi-check-circle"></i></a>
+						<a href="#" data-toggle="dropdown" class="waves-effect"><i class="zmdi zmdi-check-circle"></i></a>
 
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
 								<div class="listview listview--hover">
@@ -343,7 +261,7 @@
 				</li>
 
 				<li class="dropdown hidden-xs-down">
-						<a href="#" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>
+						<a href="#" data-toggle="dropdown" class="waves-effect"><i class="zmdi zmdi-apps"></i></a>
 
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
 								<div class="row app-shortcuts">
@@ -381,8 +299,8 @@
 						</div>
 				</li>
 
-				<li class="dropdown hidden-xs-down">
-						<a href="#" data-toggle="dropdown"><i class="zmdi zmdi-more-vert"></i></a>
+				<li class="dropdown hidden-xs-down ">
+						<a href="#" data-toggle="dropdown" class="waves-effect"><i class="zmdi zmdi-more-vert "></i></a>
 
 						<div class="dropdown-menu dropdown-menu-right">
 								<div class="dropdown-item theme-switch">
@@ -403,21 +321,20 @@
 												<label class="btn bg-brown"><input type="radio" value="brown" autocomplete="off"></label>
 										</div>
 								</div>
-								<a class="dropdown-item divider" href=""> </a>
+
 								<?php
 									if(!isset($_SESSION['user'])){
-										echo '
-											<a class="dropdown-item" href="'.$directorio.'account/create"><i class="zmdi zmdi-account-add"></i> Sign Up</a>
-										';
+										echo ' ';
 									}
 									if(isset($_SESSION['user'])){
 										echo '
+											<a class="dropdown-item divider" href=""> </a>
 											<a class="dropdown-item" href="'.$directorio.'sessions/destroy"><i class="zmdi zmdi-time-restore"></i> Logout</a>
-
+											<a class="dropdown-item divider" href=""> </a>
 										';
 									}
 								?>
-								<a class="dropdown-item divider" href=""> </a>
+
                 <a data-action="fullscreen" class="dropdown-item" href="#"><i class="zmdi zmdi-fullscreen">  </i> Toggle Fullscreen</a>
                 <a data-action="clear-localstorage" class="dropdown-item" href="#"><i class="zmdi zmdi-delete">  </i> Clear Local Storage</a>
 						</div>
@@ -429,7 +346,6 @@
 			//Menu izquierda
 			if(!isset($_SESSION['user'])){
 				echo '
-					<li class="active pull-left waves-effect"><a href="'.$directorio.'sessions/new">Play now</a></li>
 					<li class="active pull-left waves-effect"><a href="'.$directorio.'home">home</a></li>
 
 				';
@@ -437,25 +353,15 @@
 			if(isset($_SESSION['user'])){
 				echo '
 					<li class="active pull-left waves-effect"><a href="'.$directorio.'home">home</a></li>
+					<li class="active pull-left waves-effect"><a href="'.$directorio.'campaigns/search">My campaigns</a></li>
+					<li class="active pull-left waves-effect"><a href="'.$directorio.'lfg">Looking for group</a></li>
 				';
 			}
 			//Menu derecha
 			if(!isset($_SESSION['user'])){
 				echo '
-					<li class="dropdown pull-right idplr">
-						<a data-toggle="dropdown" href="">
-							Sign In <i class="zmdi zmdi-chevron-down"></i>
-						</a>
-						<ul class="dropdown-menu dm-icon pull-right">
-							<div class="navbar-form form-inline">
-								<input name="user" type="text" placeholder="User" id="userinput">
-								<li role="separator" class="divider"></li>
-								<input name="password" type="password" placeholder="Password" id="passinput">
-								<li role="separator" class="divider"></li>
-								<button class="btn btn-primary" id="loginput">Sign In</button>
-							</div>
-						</ul>
-					</li>
+					<li class="waves-effect pull-right idplr"><a href="'.$directorio.'account/login">Sign In</a></li>
+					<li class="waves-effect pull-right idplr"><a href="'.$directorio.'account/create">Sign Up</a></li>
 				';
 			}
 			if(isset($_SESSION['user'])){

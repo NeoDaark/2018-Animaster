@@ -1,5 +1,5 @@
 <!-- User Menu -- Header content box -->
-<?php 
+<?php
 $title='Crear Partida';
 $migas='#Inicio|../../index.php#Mesa|../../settings/table/#Nueva Partida';
 include "../../Public/layouts/head.php";
@@ -9,7 +9,7 @@ $usuari = new Usuario();
 $num_partida = $usuari->returnNum_Partidas($value['id_usuario']);
 
 if($num_partida >= 0 && $num_partida < 9){
-    
+
 }else{
     echo '<META http-equiv="refresh" content="0;URL=index.php">';
 }
@@ -39,7 +39,7 @@ if($num_partida >= 0 && $num_partida < 9){
                         <label for="inputDescripcion" class="sr-only">Descripción</label>
                         <textarea type="text"  id="inputDescripcion"  class="form-control" name="descripcion" placeholder="Descripción *" rows="10" required maxlength="250"></textarea>
                     </div>
-                    
+
                 </div>
                 <div class="col-md-6">
                     <div class="output m-b-10" style="border: 1px solid #333;">
@@ -80,9 +80,8 @@ if($num_partida >= 0 && $num_partida < 9){
                     <button class="btn btn-lg btn-success btn-block" type="submit">Crear Partida</button>
                 </div>
             </div>
-            
+
         </div>
     </form>
-</div> 
-<?php include "../../Public/layouts/footer.php";?> 
-
+</div>
+<?php include "../../Public/layouts/footer.php";?>
