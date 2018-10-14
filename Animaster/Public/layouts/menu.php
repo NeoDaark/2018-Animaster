@@ -1,22 +1,10 @@
 <?php
-	//Directorio --> enlaces del menu
-	$directorio = '';
-	if ($dir == 'root'){
-		$directorio = '';
-	}else{
-		if($depth == 1){
-			$directorio = '../';
-		}else if($depth == 2){
-			$directorio = '../../';
-		}else if($depth == 3){
-			$directorio = '../../../';
-		}
-	}
+
 ?>
 <!-- Aqui empieza el header -->
 <header class="header">
 		<div class="header__logo">
-				<h1><a href="<?php echo $directorio; ?>home">Animaster</a></h1>
+				<h1><a href="<?=$directory?>home">Animaster</a></h1>
 		</div>
 
 		<form class="search">
@@ -306,19 +294,19 @@
 								<div class="dropdown-item theme-switch">
 										Theme Switch
 										<div class="btn-group btn-group-toggle btn-group--colors" data-toggle="buttons">
-												<label class="btn bg-green"><input type="radio" value="green" autocomplete="off" checked></label>
-												<label class="btn bg-blue"><input type="radio" value="blue" autocomplete="off"></label>
-												<label class="btn bg-red"><input type="radio" value="red" autocomplete="off"></label>
-												<label class="btn bg-orange"><input type="radio" value="orange" autocomplete="off"></label>
-												<label class="btn bg-teal"><input type="radio" value="teal" autocomplete="off"></label>
+												<label class="btn bg-green <?=$coloractive[0]?>"><input type="radio" value="green" autocomplete="off" checked></label>
+												<label class="btn bg-blue <?=$coloractive[1]?>"><input type="radio" value="blue" autocomplete="off"></label>
+												<label class="btn bg-red <?=$coloractive[2]?>"><input type="radio" value="red" autocomplete="off"></label>
+												<label class="btn bg-orange <?=$coloractive[3]?>"><input type="radio" value="orange" autocomplete="off"></label>
+												<label class="btn bg-teal <?=$coloractive[4]?>"><input type="radio" value="teal" autocomplete="off"></label>
 
 												<div class="clearfix mt-2"></div>
 
-												<label class="btn bg-cyan active"><input type="radio" value="cyan" autocomplete="off"></label>
-												<label class="btn bg-blue-grey"><input type="radio" value="blue-grey" autocomplete="off"></label>
-												<label class="btn bg-purple"><input type="radio" value="purple" autocomplete="off"></label>
-												<label class="btn bg-indigo"><input type="radio" value="indigo" autocomplete="off"></label>
-												<label class="btn bg-brown"><input type="radio" value="brown" autocomplete="off"></label>
+												<label class="btn bg-cyan <?=$coloractive[5]?>"><input type="radio" value="cyan" autocomplete="off"></label>
+												<label class="btn bg-blue-grey <?=$coloractive[6]?>"><input type="radio" value="blue-grey" autocomplete="off"></label>
+												<label class="btn bg-purple <?=$coloractive[7]?>"><input type="radio" value="purple" autocomplete="off"></label>
+												<label class="btn bg-indigo <?=$coloractive[8]?>"><input type="radio" value="indigo" autocomplete="off"></label>
+												<label class="btn bg-brown <?=$coloractive[9]?>"><input type="radio" value="brown" autocomplete="off"></label>
 										</div>
 								</div>
 
@@ -329,7 +317,7 @@
 									if(isset($_SESSION['user'])){
 										echo '
 											<a class="dropdown-item divider" href=""> </a>
-											<a class="dropdown-item" href="'.$directorio.'sessions/destroy"><i class="zmdi zmdi-time-restore"></i> Logout</a>
+											<a class="dropdown-item" href="'.$directory.'sessions/destroy"><i class="zmdi zmdi-time-restore"></i> Logout</a>
 											<a class="dropdown-item divider" href=""> </a>
 										';
 									}
@@ -346,27 +334,27 @@
 			//Menu izquierda
 			if(!isset($_SESSION['user'])){
 				echo '
-					<li class="active pull-left waves-effect"><a href="'.$directorio.'home">home</a></li>
+					<li class="active pull-left waves-effect"><a href="'.$directory.'home">home</a></li>
 
 				';
 			}
 			if(isset($_SESSION['user'])){
 				echo '
-					<li class="active pull-left waves-effect"><a href="'.$directorio.'home">home</a></li>
-					<li class="active pull-left waves-effect"><a href="'.$directorio.'campaigns/search">My campaigns</a></li>
-					<li class="active pull-left waves-effect"><a href="'.$directorio.'lfg">Looking for group</a></li>
+					<li class="active pull-left waves-effect"><a href="'.$directory.'home">home</a></li>
+					<li class="active pull-left waves-effect"><a href="'.$directory.'campaigns/search">My campaigns</a></li>
+					<li class="active pull-left waves-effect"><a href="'.$directory.'lfg">Looking for group</a></li>
 				';
 			}
 			//Menu derecha
 			if(!isset($_SESSION['user'])){
 				echo '
-					<li class="waves-effect pull-right idplr"><a href="'.$directorio.'account/login">Sign In</a></li>
-					<li class="waves-effect pull-right idplr"><a href="'.$directorio.'account/create">Sign Up</a></li>
+					<li class="waves-effect pull-right idplr"><a href="'.$directory.'account/login">Sign In</a></li>
+					<li class="waves-effect pull-right idplr"><a href="'.$directory.'account/create">Sign Up</a></li>
 				';
 			}
 			if(isset($_SESSION['user'])){
 				echo '
-					<li class="waves-effect pull-right idplr"><a href="'.$directorio.'account/">Hola, '.$value['user_name'].'!</a></li>
+					<li class="waves-effect pull-right idplr"><a href="'.$directory.'account/">Hola, '.$user_name.' !</a></li>
 				';
 				}
 			?>
@@ -375,7 +363,7 @@
 
 <!-- //Imagen de fondo -->
 <div id="bgmslider">
-    <img src="<?php echo $directorio.'Public/img/rpgbg.jpg'?>" />
+    <img src="<?=$directory?>Public/img/rpgbg.jpg" />
 	<script>
     $(document).ready(function(){
         var src = $("#bgmslider img").eq(0).attr('src');

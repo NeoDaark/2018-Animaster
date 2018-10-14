@@ -38,7 +38,15 @@ include "Public/layouts/head.php";
 					</div>
 
 					<div class="card-block">
+						<?php
+							//$timeTarget = 0.05; // 50 milisegundos
 
+						//	$coste = 9;
+							//$testpas = password_hash("test", PASSWORD_BCRYPT, ["cost" => $coste]);
+						//	echo $testpas.'<br>';
+						//	$testpas = password_hash("test", PASSWORD_BCRYPT, ["cost" => $coste]);
+						//	echo $testpas;
+						?>
 					</div>
 			</div>
 

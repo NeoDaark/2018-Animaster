@@ -28,7 +28,7 @@ include "../Public/layouts/head.php";
 				}else{
 					$.ajax({
 						type: "POST",
-						url: "<?php echo $directorio?>System/Protocols/Users_Signup.php",
+						url: "<?php echo $directory?>System/Protocols/Users_Signup.php",
 						data: user,
 						success: function (response) {
 							console.log(response);
@@ -44,7 +44,7 @@ include "../Public/layouts/head.php";
 								anotify('Welcome to Animaster!', 'green');
 
 								setInterval(function() {
-									var url = "<?php echo $directorio?>home";
+									var url = "<?php echo $directory?>home";
 									location.href=url;
 								}, 1000);
 
