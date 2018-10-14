@@ -1,25 +1,10 @@
 <!-- Header content box -->
 <?php
 require_once '../System/config.php';
-$title='SignUp';
-$migas='#SignUp|signup.php';
+$title='Forgot Password ?';
 $dir = 'account';
 $depth = '1';
-
-
-$nuser = "";
-$nmail = "";
-$err = "";
-session_start();
-if(isset($_SESSION['nuser']) && isset($_SESSION['nmail'])){
-	$nuser = $_SESSION['nuser'];
-	$nmail = $_SESSION['nmail'];
-	$err = $_SESSION['neror'];
-	unset($_SESSION["nuser"]);
-	unset($_SESSION["nmail"]);
-	unset($_SESSION["neror"]);
-}
-
+$menu = "hide";
 include "../Public/layouts/head.php";
 ?>
 

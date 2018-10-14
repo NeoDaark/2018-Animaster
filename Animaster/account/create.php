@@ -2,9 +2,9 @@
 <?php
 require_once '../System/config.php';
 $title='SignUp';
-$migas='#SignUp|signup.php';
 $dir = 'account';
 $depth = '1';
+$menu = "hide";
 include "../Public/layouts/head.php";
 ?>
 <script>
@@ -110,5 +110,7 @@ include "../Public/layouts/head.php";
 				</div>
 		</div>
 </div>
+
+
 <!-- Footer content box -->
 <?php include "../Public/layouts/footer.php";?>

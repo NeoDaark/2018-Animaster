@@ -1,10 +1,10 @@
 <!-- Header content box -->
 <?php
 require_once '../System/config.php';
-$title='SignUp';
-$migas='#SignUp|signup.php';
+$title='SignIn';
 $dir = 'account';
 $depth = '1';
+$menu = "hide";
 include "../Public/layouts/head.php";
 ?>
 <script>

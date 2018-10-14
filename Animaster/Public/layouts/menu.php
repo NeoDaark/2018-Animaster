@@ -1,8 +1,32 @@
-<?php
+<script>
+	$( document ).ready(function() {
+			//Changue color id of the user
+			//#######################################################################
+			$('.coloractive').click(function(){
+					var data = {
+						id_color : this.id
+					};
+					$.ajax({
+							type: "POST",
+							url: "<?php echo $directory?>System/Protocols/Users_Color.php",
+							data: data,
+							success: function (response) {
+								//console.log(response);
+								if(response == 'fail'){
+									anotify('[ 1d100 = 03 ] You have a blunder!', 'red');
+								}else if(response == 'succes'){
+									anotify('Color changed!', 'green');
+								}else if(response == 'nosession'){
+									anotify('SignIn is needed to make this permanent! ', 'dark');
+								}
+							}
+					});
+			});
+	});
+</script>
 
-?>
 <!-- Aqui empieza el header -->
-<header class="header">
+<header class="header z-depth-1 <?=$menu?>">
 		<div class="navigation-trigger hidden-xl-up" data-ma-action="aside-open" data-ma-target=".sidebar">
 				<div class="navigation-trigger__inner">
 						<i class="navigation-trigger__line"></i>
@@ -10,7 +34,7 @@
 						<i class="navigation-trigger__line"></i>
 				</div>
 		</div>
-		<div class="header__logo">
+		<div class="header__logo ">
 				<h1><a href="<?=$directory?>home">Animaster</a></h1>
 		</div>
 
@@ -23,9 +47,16 @@
 
 		<ul class="top-nav">
 				<li class="hidden-xl-up"><a href="#" data-ma-action="search-open"><i class="zmdi zmdi-search"></i></a></li>
-
-				<li class="dropdown">
-						<a href="#" data-toggle="dropdown" class="waves-effect"><i class="zmdi zmdi-email"></i></a>
+				<?php
+				if(!isset($_SESSION['user'])){
+					echo '
+						<li class="waves-effect dropdown" data-toggle="tooltip" data-placement="bottom" data-original-title="Sign In" ><a href="'.$directory.'account/login"><i class="fas fa-sign-in-alt"></i></a></li>
+						<li class="waves-effect dropdown" data-toggle="tooltip" data-placement="bottom" data-original-title="Sign Up"><a href="'.$directory.'account/create"><i class="fas fa-user-plus"></i></a></li>
+					';
+				}
+				?>
+				<li class="dropdown"<?=$icons?>>
+						<a class="waves-effect" href="#" data-toggle="dropdown" ><i class="zmdi zmdi-email"></i></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
 								<div class="listview listview--hover">
 										<div class="listview__header">
@@ -100,8 +131,8 @@
 						</div>
 				</li>
 
-				<li class="dropdown top-nav__notifications">
-						<a href="#" data-toggle="dropdown" class="top-nav__notify waves-effect">
+				<li class="dropdown top-nav__notifications" <?=$icons?>>
+						<a class="waves-effect top-nav__notify" href="#" data-toggle="dropdown">
 								<i class="zmdi zmdi-notifications"></i>
 						</a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
@@ -193,8 +224,8 @@
 						</div>
 				</li>
 
-				<li class="dropdown hidden-xs-down">
-						<a href="#" data-toggle="dropdown" class="waves-effect"><i class="zmdi zmdi-check-circle"></i></a>
+				<li class="dropdown hidden-xs-down" <?=$icons?>>
+						<a class="waves-effect" href="#" data-toggle="dropdown"><i class="zmdi zmdi-check-circle"></i></a>
 
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
 								<div class="listview listview--hover">
@@ -255,8 +286,8 @@
 						</div>
 				</li>
 
-				<li class="dropdown hidden-xs-down">
-						<a href="#" data-toggle="dropdown" class="waves-effect"><i class="zmdi zmdi-apps"></i></a>
+				<li class="dropdown hidden-xs-down" <?=$icons?>>
+						<a class="waves-effect" href="#" data-toggle="dropdown"><i class="zmdi zmdi-apps"></i></a>
 
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block" role="menu">
 								<div class="row app-shortcuts">
@@ -294,26 +325,27 @@
 						</div>
 				</li>
 
-				<li class="dropdown hidden-xs-down ">
-						<a href="#" data-toggle="dropdown" class="waves-effect"><i class="zmdi zmdi-more-vert "></i></a>
+				<li class="dropdown hidden-xs-down">
+						<a class="waves-effect" href="#" data-toggle="dropdown"><i class="zmdi zmdi-more-vert "></i></a>
 
 						<div class="dropdown-menu dropdown-menu-right">
 								<div class="dropdown-item theme-switch">
 										Theme Switch
 										<div class="btn-group btn-group-toggle btn-group--colors" data-toggle="buttons">
-												<label class="btn bg-green <?=$coloractive[0]?>"><input type="radio" value="green" autocomplete="off" checked></label>
-												<label class="btn bg-blue <?=$coloractive[1]?>"><input type="radio" value="blue" autocomplete="off"></label>
-												<label class="btn bg-red <?=$coloractive[2]?>"><input type="radio" value="red" autocomplete="off"></label>
-												<label class="btn bg-orange <?=$coloractive[3]?>"><input type="radio" value="orange" autocomplete="off"></label>
-												<label class="btn bg-teal <?=$coloractive[4]?>"><input type="radio" value="teal" autocomplete="off"></label>
+												<label id="0" class="coloractive btn bg-green <?=$coloractive[0]?>"><input type="radio" value="green" autocomplete="off" checked></label>
+												<label id="1" class="coloractive btn bg-blue <?=$coloractive[1]?>"><input type="radio" value="blue" autocomplete="off"></label>
+												<label id="2" class="coloractive btn bg-red <?=$coloractive[2]?>"><input type="radio" value="red" autocomplete="off"></label>
+												<label id="3" class="coloractive btn bg-orange <?=$coloractive[3]?>"><input type="radio" value="orange" autocomplete="off"></label>
+												<label id="4" class="coloractive btn bg-teal <?=$coloractive[4]?>"><input type="radio" value="teal" autocomplete="off"></label>
 
 												<div class="clearfix mt-2"></div>
 
-												<label class="btn bg-cyan <?=$coloractive[5]?>"><input type="radio" value="cyan" autocomplete="off"></label>
-												<label class="btn bg-blue-grey <?=$coloractive[6]?>"><input type="radio" value="blue-grey" autocomplete="off"></label>
-												<label class="btn bg-purple <?=$coloractive[7]?>"><input type="radio" value="purple" autocomplete="off"></label>
-												<label class="btn bg-indigo <?=$coloractive[8]?>"><input type="radio" value="indigo" autocomplete="off"></label>
-												<label class="btn bg-brown <?=$coloractive[9]?>"><input type="radio" value="brown" autocomplete="off"></label>
+												<label id="5" class="coloractive btn bg-cyan <?=$coloractive[5]?>"><input type="radio" value="cyan" autocomplete="off"></label>
+												<label id="6" class="coloractive btn bg-dark <?=$coloractive[6]?>"><input type="radio" value="dark-blue" autocomplete="off"></label>
+												<label id="7" class="coloractive btn bg-purple <?=$coloractive[7]?>"><input type="radio" value="purple" autocomplete="off"></label>
+												<label id="8" class="coloractive btn bg-indigo <?=$coloractive[8]?>"><input type="radio" value="indigo" autocomplete="off"></label>
+												<label id="9" class="coloractive btn bg-brown <?=$coloractive[9]?>"><input type="radio" value="brown" autocomplete="off"></label>
+
 										</div>
 								</div>
 
@@ -329,54 +361,31 @@
 										';
 									}
 								?>
-
                 <a data-action="fullscreen" class="dropdown-item" href="#"><i class="zmdi zmdi-fullscreen">  </i> Toggle Fullscreen</a>
                 <a data-action="clear-localstorage" class="dropdown-item" href="#"><i class="zmdi zmdi-delete">  </i> Clear Local Storage</a>
-								<a class="dropdown-item" href="<?=$directory?>../Themex/"><i class="zmdi zmdi-label-alt-outline"></i> Theme</a>
+								<?php
+								if ($user_rol == 1){
+									echo '<a class="dropdown-item" href="'.$directory.'"../Themex/"><i class="zmdi zmdi-label-alt-outline"></i> Theme</a>';
+
+								}
+
+
+								?>
+
 						</div>
 				</li>
 		</ul>
 
-		<ul class="top-menu">
-			<?php
-				//Menu izquierda
-				if(!isset($_SESSION['user'])){
-					echo '
-						<li class="active pull-left waves-effect"><a href="'.$directory.'home">home</a></li>
-
-					';
-				}
-				if(isset($_SESSION['user'])){
-					echo '
-						<li class="active pull-left waves-effect"><a href="'.$directory.'home">home</a></li>
-						<li class="active pull-left waves-effect"><a href="'.$directory.'campaigns/search">My campaigns</a></li>
-						<li class="active pull-left waves-effect"><a href="'.$directory.'lfg">Looking for group</a></li>
-					';
-				}
-				//Menu derecha
-				if(!isset($_SESSION['user'])){
-					echo '
-						<li class="waves-effect pull-right idplr"><a href="'.$directory.'account/login">Sign In</a></li>
-						<li class="waves-effect pull-right idplr"><a href="'.$directory.'account/create">Sign Up</a></li>
-					';
-				}
-				if(isset($_SESSION['user'])){
-					echo '
-						<li class="waves-effect pull-right idplr"><a href="'.$directory.'account/">Hola, '.$user_name.' !</a></li>
-					';
-					}
-				?>
-		</ul>
 </header>
 
-<aside class="sidebar">
+<aside class="sidebar <?=$menu?>">
     <div class="scrollbar-inner">
-        <div class="user">
+        <div class="user" <?=$icons?>>
             <div class="user__info" data-toggle="dropdown">
-                <img class="user__img" src="demo/img/profile-pics/8.jpg" alt="">
+                <img class="user__img" src="<?=$gravatar_link?>" alt="">
                 <div>
-                    <div class="user__name">Malinda Hollaway</div>
-                    <div class="user__email">malinda-h@gmail.com</div>
+                    <div class="user__name"><?=$user_name?></div>
+                    <div class="user__email"><?=$user_mail?></div>
                 </div>
             </div>
 

@@ -1,5 +1,5 @@
 <?php
-  //Directory functions
+  //Directory function
   //###########################################################################
   function mkdirectory($dir, $depth) {
     $newdir = '';
@@ -17,23 +17,24 @@
     return $newdir;
   }
 
-
-  //useful variables
+  //Useful variables
   //###########################################################################
-  $tabtitle= $title.'| Animaster'; //Tab title
-  $directory = mkdirectory($dir, $depth); //
-  $dirpublic = $directory.'Public/';
+  $tabtitle= $title.'| Animaster';              //Tab title
+  $directory = mkdirectory($dir, $depth);       //Dir for load resources
+  $dirpublic = $directory.'Public/';            //Specific Public dir
 
   //Colors array list
   //###########################################################################
-  $colorbarray = array("green", "blue", "red", "orange", "teal", "cyan", "blue-grey", "purple", "indigo", "brown");
-  $coloractive = array("", "", "", "", "", "", "", "", "", "active"); //set color 9 active
-  $color = $colorbarray[9]; //set color 9
+  $colorbarray = array("green", "blue", "red", "orange", "teal", "cyan", "dark-blue", "purple", "indigo", "brown");
+
 
   if(session_status() == PHP_SESSION_NONE){
-  	//aqui no hay sesion activa
     session_start();
     if(isset($_SESSION['user'])){
+      if(!isset($menu)){$menu='';}  //Show menu
+      if(!isset($icons)){$icons='';} //Hide icons
+      //Session -> Get user info
+      //#######################################################################
       require_once($directory.'System/Classes/Users.php');
       $id_user = unserialize($_SESSION['user'])->getid_user();
       $user_name = unserialize($_SESSION['user'])->getuser_name();
@@ -42,11 +43,38 @@
       $user_rol = unserialize($_SESSION['user'])->getuser_rol();
       $user_color = unserialize($_SESSION['user'])->usercolor($id_user);
 
+      //gravatar QuickHash
+      //#######################################################################
+      $user_gravatar = md5(trim($user_mail));
+      $gravatar_link = "https://secure.gravatar.com/avatar/".$user_gravatar."?d=mp";
+
       //Set user color preference
-      $coloractive = array("", "", "", "", "", "", "", "", "", ""); //restart color array
+      //#######################################################################
+      $coloractive = array("", "", "", "", "", "", "", "", "", "");
       $coloractive[$user_color] = "active"; //set user color active
       $color = $colorbarray[$user_color]; //set user color
 
+    }else{
+      //No Session
+      //#######################################################################
+      if(!isset($menu)){$menu='';}//Show menu if not set
+      if(!isset($icons)){$icons="style='display:none;'";}//Hide icons
+      $coloractive = array("", "", "", "", "", "", "active", "", "", ""); //set color 6 active
+      $color = $colorbarray[6]; //set color 6
+
+      //Set user info to = '' if no session loaded
+      //#######################################################################
+      if(!isset($id_user)){$id_user='';}
+      if(!isset($user_name)){$user_name='';}
+      if(!isset($user_mail)){$user_mail='';}
+      if(!isset($user_pass)){$user_pass='';}
+      if(!isset($user_rol)){$user_rol='';}
+      if(!isset($user_color)){$user_color='';}
+      if(!isset($user_gravatar)){$user_gravatar='';}
+
+      //gravatar icon -> mp
+      //#######################################################################
+      $gravatar_link = "https://secure.gravatar.com/avatar/".$user_gravatar."?d=mp";
     }
   }
 

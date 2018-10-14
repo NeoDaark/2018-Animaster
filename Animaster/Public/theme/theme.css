@@ -1,3 +1,11 @@
+[data-ma-theme=dark-blue] .header,
+[data-ma-theme=dark-blue] .login__block__btn,
+[data-ma-theme=dark-blue] .login__block__header,
+[data-ma-theme=dark-blue] .top-menu{background-color:#212121}
+[data-ma-theme=dark-blue] .navigation__active:before,
+[data-ma-theme=dark-blue] .navigation__active>a,
+[data-ma-theme=dark-blue] .navigation__sub--active>a{color:#03a9f4}
+
 body {
 	background-color: rgba(0,0,0,0.0);
 }
@@ -11,9 +19,12 @@ body {
 	z-index:-1;
 }
 .sidebar{
-	top: 6px;
-	padding-top: 120px;
-	background-color: rgba(255, 255, 255, 0.98);
+	top: 0px;
+	padding-top: 102px;
+	background-color: rgba(255, 255, 255, 0.82);
+}
+.sidebar.toggled{
+	background-color: rgba(255, 255, 255, 1);
 }
 html {
   background-color: #9E9E9E;
@@ -41,7 +52,7 @@ html {
 }
 /* ############################################################### waves
 */
-.waves-effect.waves-test .waves-ripple {
+.waves-effect.waves-dark-blue .waves-ripple {
 /* The alpha value allows the text and background color
 of the button to still show through. */
 background-color: #4caf50 !important;
@@ -191,19 +202,19 @@ background-color: #2196f3 !important;
 color: #2196f3 !important;
 }
 
-.bgm-purple {
+.bgm-daark {
 background-color: #9c27b0 !important;
 }
 
-.c-purple {
+.c-daark {
 color: #9c27b0 !important;
 }
 
-.bgm-deeppurple {
+.bgm-deepdaark {
 background-color: #673ab7 !important;
 }
 
-.c-deeppurple {
+.c-deepdaark {
 color: #673ab7 !important;
 }
 
