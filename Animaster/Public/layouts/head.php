@@ -82,6 +82,7 @@
       <script src="<?=$dirpublic?>libs/bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
       <script src="<?=$dirpublic?>libs/bower_components/jquery.scrollbar/jquery.scrollbar.min.js"></script>
       <script src="<?=$dirpublic?>libs/bower_components/jquery-scrollLock/jquery-scrollLock.min.js"></script>
+
       <script src="<?=$dirpublic?>libs/bower_components/flot/jquery.flot.js"></script>
       <script src="<?=$dirpublic?>libs/bower_components/flot/jquery.flot.resize.js"></script>
       <script src="<?=$dirpublic?>libs/bower_components/flot.curvedlines/curvedLines.js"></script>

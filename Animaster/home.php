@@ -12,7 +12,7 @@ include "Public/layouts/head.php";
 
 
 <!-- Body content box -->
-<section class="content content--full">
+<section class="content">
 		<div class="content__inner">
 			<header class="content__title">
 					<h1 class="c-white">xxx</h1>
