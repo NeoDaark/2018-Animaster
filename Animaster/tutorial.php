@@ -1,8 +1,7 @@
 <!-- Home - Header content box  -->
 <?php
 require_once 'System/config.php';
-$title='Info';
-$migas='#Info|servers.php';
+$title='Tutorial ';
 $dir = 'root';
 $depth = '0';
 include "Public/layouts/head.php";

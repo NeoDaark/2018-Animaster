@@ -381,7 +381,7 @@
         </div>
 
         <ul class="navigation">
-            <li class="navigation__active" ><a href="<?=$directory?>home"><i class="zmdi zmdi-home"></i> Home</a></li>
+            <li <?php if($dir =='root'){ echo 'class="navigation__active"';} ?>  ><a href="<?=$directory?>home"><i class="zmdi zmdi-home"></i> Home</a></li>
 
 						<li class="navigation__sub">
                 <a href="#"><i class="zmdi zmdi-gamepad"></i>Games</a>
