@@ -1,7 +1,7 @@
 <!-- Header content box -->
 <?php
 require_once '../System/config.php';
-$title='Account';
+$title='Account ';
 $dir = 'account';
 $depth = '1';
 include "../Public/layouts/head.php";?>

@@ -1,7 +1,7 @@
 <!-- Header content box -->
 <?php
 require_once '../System/config.php';
-$title='SignUp';
+$title='SignUp ';
 $dir = 'account';
 $depth = '1';
 $menu = "hide";

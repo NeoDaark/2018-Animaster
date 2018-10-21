@@ -1,7 +1,7 @@
 <!-- Header content box -->
 <?php
 require_once '../System/config.php';
-$title='Forgot Password ?';
+$title='Forgot Password ? ';
 $dir = 'account';
 $depth = '1';
 $menu = "hide";

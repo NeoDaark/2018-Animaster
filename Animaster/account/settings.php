@@ -1,8 +1,8 @@
 <!-- Header content box -->
 <?php
 require_once '../System/config.php';
-$title='My campaigns ';
-$dir = 'campaigns';
+$title='Account | Settings ';
+$dir = 'account';
 $depth = '1';
 include "../Public/layouts/head.php";?>
 

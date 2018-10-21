@@ -1,8 +1,8 @@
 <!-- User Menu -- Header content box -->
 <?php
-$title='Crear Partida';
+$title='Crear Partida ';
 $migas='#Inicio|../../index.php#Mesa|../../settings/table/#Nueva Partida';
-include "../../Public/layouts/head.php";
+include "../Public/layouts/head.php";
 
 require_once('../../System/Classes/Usuario.php');
 $usuari = new Usuario();
