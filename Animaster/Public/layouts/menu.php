@@ -352,7 +352,7 @@
                 <a data-action="clear-localstorage" class="dropdown-item" href="#"><i class="zmdi zmdi-delete">  </i> Clear Local Storage</a>
 								<?php
 								if ($user_rol == 1){
-									echo '<a class="dropdown-item" href="'.$directory.'"../Themex/"><i class="zmdi zmdi-label-alt-outline"></i> Theme</a>';
+									echo '<a class="dropdown-item" href="'.$directory.'../Themex/"><i class="zmdi zmdi-label-alt-outline"></i> Theme</a>';
 								}
 								?>
 
@@ -386,10 +386,10 @@
 						<li class="navigation__sub">
                 <a href="#"><i class="zmdi zmdi-gamepad"></i>Games</a>
                 <ul>
-                    <li><a href="#"><i class="zmdi zmdi-folder-star"></i> My games</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-edit"></i> Create new game</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-folder-person"></i> Join a game</a></li>
-                    <li><a href="#"><i class="zmdi zmdi-pin-help"></i> Tutorial</a></li>
+                    <li <?=$icons?>><a href="<?=$directory?>campaigns/search"><i class="zmdi zmdi-folder-star"></i> My games</a></li>
+                    <li <?=$icons?>><a href="<?=$directory?>campaigns/new"><i class="zmdi zmdi-edit"></i> Create new game</a></li>
+                    <li><a href="<?=$directory?>lfg"><i class="zmdi zmdi-folder-person"></i> Join a game</a></li>
+                    <li><a href="<?=$directory?>tutorial"><i class="zmdi zmdi-pin-help"></i> Tutorial</a></li>
                 </ul>
             </li>
 
