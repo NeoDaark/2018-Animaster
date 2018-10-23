@@ -92,7 +92,7 @@ class DiceObject {
     constructor(options) {
         options = this.setDefaults(options, {
             size: 100,
-            fontColor: '#000000',
+            fontColor: '#888888',
             backColor: '#ffffff'
         });
 
@@ -511,6 +511,7 @@ class DiceD10 extends DiceObject {
         this.create();
     }
 }
+
 
 class DiceD12 extends DiceObject {
     constructor(options) {
