@@ -3,7 +3,7 @@
 
 <style>
 html{
-  background-image: url('../Public/img/rpgbg2.jpg');
+  background-image: url('../Public/img/rpgbg.jpg');
   background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
@@ -115,7 +115,12 @@ function init()
     //Walls
 
     var colors = ['#800000', '#ffff00', '#00ff00', '#0000ff', '#ff00ff'];
-    for (var i = 0; i < 2; i++) {
+    for (var i = 0; i < 1; i++) {
+        var die = new DiceD100({size: 1.5, backColor: '#111111', fontColor:'#ffffff'});
+        scene.add(die.getObject());
+        dice.push(die);
+    }
+    for (var i = 0; i < 1; i++) {
         var die = new DiceD10({size: 1.5, backColor: '#111111', fontColor:'#ffffff'});
         scene.add(die.getObject());
         dice.push(die);
@@ -135,14 +140,13 @@ function init()
             let rand = Math.random() * 10;
             dice[i].getObject().body.velocity.set(25 + rand, 40 + yRand, 15 + rand);
             dice[i].getObject().body.angularVelocity.set(20 * Math.random() -10, 20 * Math.random() -10, 20 * Math.random() -10);
-
             diceValues.push({dice: dice[i], value: i + 1});
         }
 
         DiceManager.prepareValues(diceValues);
     }
 
-    //setInterval(randomDiceThrow, 3000);
+    setInterval(randomDiceThrow, 3000);
     randomDiceThrow();
 
     requestAnimationFrame( animate );
