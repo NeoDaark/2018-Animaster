@@ -18,8 +18,8 @@ include "Public/layouts/head.php";
 
 			<div class="card">
 				<div class="card-header">
-					<h2 class="card-title">xxx</h2>
-					<small class="card-subtitle">xxx</small>
+					<h2 class="card-title">XX</h2>
+					<small class="card-subtitle">Marc, qué?! XD</small>
 				</div>
 
 			</div>
