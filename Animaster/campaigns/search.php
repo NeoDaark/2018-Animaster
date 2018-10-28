@@ -13,6 +13,5 @@ include "../Public/layouts/head.php";?>
 </script>
 <!-- Body box -->
 
-
 <!-- Footer content box -->
 <?php include "../Public/layouts/footer.php";?>
