@@ -1,5 +1,6 @@
 (function($){
     $(document).ready(function(){
+
         //getfocus function for no autofill
         //-----------------------------------------------
         focusMethod = function getFocus(id) {
