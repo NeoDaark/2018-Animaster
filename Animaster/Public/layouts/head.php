@@ -109,7 +109,7 @@
 
       <!-- App styles -->
       <link rel="stylesheet" href="<?=$dirpublic?>theme/app.min.css">
-      <link rel="stylesheet" href="<?=$dirpublic?>theme/theme.css">
+      <link rel="stylesheet" href="<?=$dirpublic?>theme/theme.css?<?=rand()?>">
 
       <!-- Javascript -->
       <!-- libs -->
@@ -149,7 +149,7 @@
 
       <!-- App functions and actions -->
       <script src="<?=$dirpublic?>theme/app.min.js"></script>
-      <script src="<?=$dirpublic?>theme/theme.js"></script>
+      <script src="<?=$dirpublic?>theme/theme.js?<?=rand()?>"></script>
 
 			<!-- Favicon -->
       <link rel="shortcut icon" href="<?=$dirpublic?>icon/favicon.ico">

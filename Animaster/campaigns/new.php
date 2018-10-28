@@ -9,6 +9,7 @@ include "../Public/layouts/head.php";
 <!-- Body content box -->
 
 <section class="content">
+
 	<div class="content__inner">
 
     <div class="card">
@@ -46,5 +47,6 @@ include "../Public/layouts/head.php";
     </div>
 
 	</div>
+	
 </section>
 <?php include "../Public/layouts/footer.php";?>
