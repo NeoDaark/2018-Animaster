@@ -30,7 +30,7 @@ include "../Public/layouts/head.php";?>
 
       <div class="card-deck">
         <div class="card">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/b3/37/2a/b3372a118b11a4a0f5714a1aecb40dbc.jpg">
+            <img class="card-img-top h200" src="https://i.pinimg.com/564x/b3/37/2a/b3372a118b11a4a0f5714a1aecb40dbc.jpg">
 
             <div class="card-body">
                 <h4 class="card-title">Card title</h4>
@@ -53,7 +53,7 @@ include "../Public/layouts/head.php";?>
             </div>
         </div>
         <div class="card">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/66/70/60/667060b5533b1e8b7ad43043b401d2e5.jpg">
+            <img class="card-img-top h200" src="https://i.pinimg.com/564x/66/70/60/667060b5533b1e8b7ad43043b401d2e5.jpg">
 
             <div class="card-body">
                 <h4 class="card-title">Card title</h4>
@@ -76,7 +76,7 @@ include "../Public/layouts/head.php";?>
         </div>
 
         <div class="card">
-            <img class="card-img-top" src="https://i.pinimg.com/564x/f6/49/2e/f6492e2e97364ff21e5b22a0c2ed2df8.jpg">
+            <img class="card-img-top h200" src="https://i.pinimg.com/564x/f6/49/2e/f6492e2e97364ff21e5b22a0c2ed2df8.jpg">
 
             <div class="card-body">
                 <h4 class="card-title">Card title</h4>
