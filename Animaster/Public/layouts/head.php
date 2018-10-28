@@ -99,6 +99,14 @@
       <link rel="stylesheet" href="<?=$dirpublic?>libs/waves.css">
       <link rel="stylesheet" href="<?=$dirpublic?>libs/bower_components/sweetalert2/dist/sweetalert2.min.css">
 
+      <link rel="stylesheet" href="<?=$dirpublic?>libs/bower_components/select2/dist/css/select2.min.css">
+      <link rel="stylesheet" href="<?=$dirpublic?>libs/bower_components/dropzone/dist/dropzone.css">
+      <link rel="stylesheet" href="<?=$dirpublic?>libs/bower_components/nouislider/distribute/nouislider.min.css">
+      <link rel="stylesheet" href="<?=$dirpublic?>libs/bower_components/bootstrap-colorpicker/dist/css/bootstrap-colorpicker.css">
+      <link rel="stylesheet" href="<?=$dirpublic?>libs/bower_components/trumbowyg/dist/ui/trumbowyg.min.css">
+      <link rel="stylesheet" href="<?=$dirpublic?>libs/flatpickr/flatpickr.min.css" />
+      <link rel="stylesheet" href="<?=$dirpublic?>libs/bower_components/rateYo/min/jquery.rateyo.min.css">
+
       <!-- App styles -->
       <link rel="stylesheet" href="<?=$dirpublic?>theme/app.min.css">
       <link rel="stylesheet" href="<?=$dirpublic?>theme/theme.css">
@@ -128,6 +136,16 @@
       <script src="<?=$dirpublic?>libs/fontawesome-5.3.1/js/v4-shims.min.js"></script>
       <script src="<?=$dirpublic?>libs/bower_components/remarkable-bootstrap-notify/dist/bootstrap-notify.min.js"></script>
       <script src="<?=$dirpublic?>libs/bower_components/sweetalert2/dist/sweetalert2.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/jquery-mask-plugin/dist/jquery.mask.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/select2/dist/js/select2.full.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/dropzone/dist/min/dropzone.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/nouislider/distribute/nouislider.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/bootstrap-colorpicker/dist/js/bootstrap-colorpicker.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/trumbowyg/dist/trumbowyg.min.js"></script>
+      <script src="<?=$dirpublic?>libs/flatpickr/flatpickr.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/rateYo/min/jquery.rateyo.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/jquery-text-counter/textcounter.min.js"></script>
+      <script src="<?=$dirpublic?>libs/bower_components/autosize/dist/autosize.min.js"></script>
 
       <!-- App functions and actions -->
       <script src="<?=$dirpublic?>theme/app.min.js"></script>

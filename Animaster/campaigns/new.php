@@ -1,87 +1,50 @@
-<!-- User Menu -- Header content box -->
+<!-- New Game - Header content box -->
 <?php
-$title='Crear Partida ';
-$migas='#Inicio|../../index.php#Mesa|../../settings/table/#Nueva Partida';
+require_once '../System/config.php';
+$title='New Game';
+$dir = 'campaigns';
+$depth = '1';
 include "../Public/layouts/head.php";
-
-require_once('../../System/Classes/Usuario.php');
-$usuari = new Usuario();
-$num_partida = $usuari->returnNum_Partidas($value['id_usuario']);
-
-if($num_partida >= 0 && $num_partida < 9){
-
-}else{
-    echo '<META http-equiv="refresh" content="0;URL=index.php">';
-}
 ?>
 <!-- Body content box -->
-<div class="container" >
-    <form method="POST" name="myForm" action="../../System/Protocols/Partida_Crear.php" enctype="multipart/form-data">
-        <div class="row">
-            <div class="col-md-12">
-                <div class="col-md-12 cinput m-l-15 ">
-                    <h2 class="form-signin-heading">Crear nueva partida</h2>
-                </div>
-                <div class="col-md-6">
-                    <div class="col-md-12 cinput ">
-                        <label for="inputNombre" class="sr-only">Nombre</label>
-                        <input type="text"  id="inputNombre"  class="form-control" name="nombre" placeholder="Nombre *" required autofocus>
-                    </div>
-                    <div class="col-md-6 cinput">
-                        <label for="inputAnyo" class="sr-only">Año</label>
-                        <input type="text"  id="inputAnyo"  class="form-control" name="anyo" placeholder="Año *" required>
-                    </div>
-                    <div class="col-md-6 cinput">
-                        <label for="inputNivel" class="sr-only">Nivel</label>
-                        <input type="text"  id="inputNivel"  class="form-control" name="nivel" placeholder="Nivel *" required>
-                    </div>
-                    <div class="col-md-12 cinput">
-                        <label for="inputDescripcion" class="sr-only">Descripción</label>
-                        <textarea type="text"  id="inputDescripcion"  class="form-control" name="descripcion" placeholder="Descripción *" rows="10" required maxlength="250"></textarea>
-                    </div>
 
-                </div>
-                <div class="col-md-6">
-                    <div class="output m-b-10" style="border: 1px solid #333;">
-                        <img id="output" >
-                    </div>
-                    <div class="col-md-12 cinput">
-                        <div class="input-group">
-                            <span class="input-group-btn">
-                                <span class="btn btn-primary btn-file">
-                                    Browse… <input type="file" name="imagen" onchange="loadFile(event)">
-                                </span>
-                            </span>
-                            <input id="fileselected" class="form-control " readonly="" type="text" >
-                        </div>
-                        <script>
-                            $(document).ready( function() {
-                                $('.btn-file :file').on('fileselect', function(event, numFiles, label) {
-                                    console.log(numFiles);
-                                    console.log(label);
-                                    $('#fileselected').val(label);
-                                });
-                                $(document).on('change', '.btn-file :file', function() {
-                                    var input = $(this),
-                                        numFiles = input.get(0).files ? input.get(0).files.length : 1,
-                                        label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
-                                        input.trigger('fileselect', [numFiles, label]);
-                                });
-                            });
-                            var loadFile = function(event) {
-                                console.log('here');
-                                var output = document.getElementById('output');
-                                output.src = URL.createObjectURL(event.target.files[0]);
-                            };
-                        </script>
-                    </div>
-                </div>
-                <div class="col-md-12 cinput m-l-15">
-                    <button class="btn btn-lg btn-success btn-block" type="submit">Crear Partida</button>
-                </div>
-            </div>
+<section class="content">
+	<div class="content__inner">
 
+    <div class="card">
+			<div class="card-header">
+				<h2 class="card-title">Start New Game</h2>
+				<small class="card-subtitle">
+          To create a new game, just give it a name,
+          enter some tags for organization, and (optionally) choose from the
+          additional settings below. Then click the "Create Game" button.
+        </small>
+			</div>
+		</div>
+
+		<div class="card">
+			<div class="card-header">
+        <h2 class="card-title">Name & Description</h2>
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Name..">
+          <i class="form-group__bar"></i>
         </div>
-    </form>
-</div>
-<?php include "../../Public/layouts/footer.php";?>
+        <div class="form-group">
+            <textarea class="form-control textarea-autosize text-counter" data-max-length="500" placeholder="Description... (Max set to 500)"></textarea>
+            <i class="form-group__bar"></i>
+        </div>
+			</div>
+		</div>
+
+    <div class="card">
+      <div class="card-body">
+          <h4 class="card-title">Drag and drop file upload</h4>
+          <h6 class="card-subtitle">DropzoneJS is an open source library that provides drag’n’drop file uploads with image previews.</h6>
+
+          <form class="dropzone dz-clickable" id="dropzone-upload"><div class="dz-default dz-message"><span>Drop files here to upload</span></div></form>
+      </div>
+    </div>
+
+	</div>
+</section>
+<?php include "../Public/layouts/footer.php";?>
