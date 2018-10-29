@@ -1,10 +1,10 @@
 <!-- Home - Header content box  -->
 <?php
-require_once 'System/config.php';
+require_once '../System/config.php';
 $title='Tutorial ';
-$dir = 'root';
-$depth = '0';
-include "Public/layouts/head.php";
+$dir = 'games-tutorial';
+$depth = '1';
+include "../Public/layouts/head.php";
 ?>
 
 
@@ -44,4 +44,4 @@ include "Public/layouts/head.php";
 </section>
 
 <!-- Footer content box -->
-<?php include "Public/layouts/footer.php";?>
+<?php include "../Public/layouts/footer.php";?>

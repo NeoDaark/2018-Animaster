@@ -1,8 +1,8 @@
 <!-- Header content box -->
 <?php
 require_once '../System/config.php';
-$title='My campaigns ';
-$dir = 'campaigns';
+$title='Looking for group';
+$dir = 'games-search';
 $depth = '1';
 include "../Public/layouts/head.php";?>
 

@@ -27,6 +27,20 @@
   //###########################################################################
   $colorbarray = array("green", "blue", "red", "orange", "teal", "cyan", "dark-blue", "purple", "indigo", "brown");
 
+  //You are here!
+  //###########################################################################
+  //[ 0->"home" 1->"games-index" 2->"games-new" 3->"games-lfg" 4->"games-tutorial" ?->more(add here the list) ]
+  $youarehere = array("", "", "", "", "");
+  $cn_a = 'class="navigation__active"'; //class navigation active
+  $cn_t = 'navigation__sub--active navigation__sub--toggled'; //class navigation active and toggled
+
+  $tgm = '';
+  if($dir =='root'){ $youarehere[0] = $cn_a; }
+  elseif($dir =='games-index'){$youarehere[1] = $cn_a; $tgm = $cn_t;}
+  elseif($dir =='games-new'){$youarehere[2] = $cn_a; $tgm = $cn_t;}
+  elseif($dir =='games-search'){$youarehere[3] = $cn_a; $tgm = $cn_t;}
+  elseif($dir =='games-tutorial'){$youarehere[4] = $cn_a; $tgm = $cn_t;}
+
 
   if(session_status() == PHP_SESSION_NONE){
     session_start();

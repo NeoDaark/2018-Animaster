@@ -381,15 +381,15 @@
         </div>
 
         <ul class="navigation">
-            <li <?php if($dir =='root'){ echo 'class="navigation__active"';} ?>  ><a href="<?=$directory?>home"><i class="zmdi zmdi-home"></i> Home</a></li>
+            <li <?=$youarehere[0]?>><a href="<?=$directory?>home"><i class="zmdi zmdi-home"></i> Home</a></li>
 
-						<li class="navigation__sub">
+						<li class="navigation__sub <?= $tgm?>">
                 <a href="#"><i class="zmdi zmdi-gamepad"></i>Games</a>
                 <ul>
-                    <li <?=$icons?>><a href="<?=$directory?>games/"><i class="zmdi zmdi-folder-star"></i> My games</a></li>
-                    <li <?=$icons?>><a href="<?=$directory?>games/new"><i class="zmdi zmdi-edit"></i> Create new game</a></li>
-                    <li><a href="<?=$directory?>lfg/"><i class="zmdi zmdi-folder-person"></i> Join a game</a></li>
-                    <li><a href="<?=$directory?>tutorial"><i class="zmdi zmdi-pin-help"></i> Tutorial</a></li>
+                    <li <?=$youarehere[1]?><?=$icons?>><a href="<?=$directory?>games/"><i class="zmdi zmdi-folder-star"></i> My games</a></li>
+                    <li <?=$youarehere[2]?><?=$icons?>><a href="<?=$directory?>games/new"><i class="zmdi zmdi-edit"></i> Create new game</a></li>
+                    <li <?=$youarehere[3]?>><a href="<?=$directory?>games/search"><i class="zmdi zmdi-folder-person"></i> Join a game</a></li>
+                    <li <?=$youarehere[4]?>><a href="<?=$directory?>games/tutorial"><i class="zmdi zmdi-pin-help"></i> Tutorial</a></li>
                 </ul>
             </li>
 

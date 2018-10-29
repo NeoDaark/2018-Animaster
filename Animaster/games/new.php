@@ -2,7 +2,7 @@
 <?php
 require_once '../System/config.php';
 $title='New Game';
-$dir = 'campaigns';
+$dir = 'games-new';
 $depth = '1';
 include "../Public/layouts/head.php";
 ?>
@@ -47,6 +47,6 @@ include "../Public/layouts/head.php";
     </div>
 
 	</div>
-	
+
 </section>
 <?php include "../Public/layouts/footer.php";?>
