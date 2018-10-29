@@ -386,9 +386,9 @@
 						<li class="navigation__sub">
                 <a href="#"><i class="zmdi zmdi-gamepad"></i>Games</a>
                 <ul>
-                    <li <?=$icons?>><a href="<?=$directory?>campaigns/search"><i class="zmdi zmdi-folder-star"></i> My games</a></li>
-                    <li <?=$icons?>><a href="<?=$directory?>campaigns/new"><i class="zmdi zmdi-edit"></i> Create new game</a></li>
-                    <li><a href="<?=$directory?>lfg"><i class="zmdi zmdi-folder-person"></i> Join a game</a></li>
+                    <li <?=$icons?>><a href="<?=$directory?>games/"><i class="zmdi zmdi-folder-star"></i> My games</a></li>
+                    <li <?=$icons?>><a href="<?=$directory?>games/new"><i class="zmdi zmdi-edit"></i> Create new game</a></li>
+                    <li><a href="<?=$directory?>lfg/"><i class="zmdi zmdi-folder-person"></i> Join a game</a></li>
                     <li><a href="<?=$directory?>tutorial"><i class="zmdi zmdi-pin-help"></i> Tutorial</a></li>
                 </ul>
             </li>
