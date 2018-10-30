@@ -56,10 +56,10 @@
 
         //Metods - Delete user by $id_user
         //##############################################################################################
-        public function delete($id_user){
+        public function deleteuser($id_user){
             $db = new connexio();
-            $result = $sql = "delete from users where id_user = $id_user";
-            $db->query($sql);
+            $result = $db->query("DELETE from users where id_user= '$id_user'");
+            $db->close();
             return $result;
         }
 

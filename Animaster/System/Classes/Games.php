@@ -1,125 +1,72 @@
 <?php
     require_once __DIR__."/../config.php";
-    class Users{
+    class Games{
         //Attributes
         //##############################################################################################
-        private $id_user;
-        private $user_name;
-        private $user_mail;
-        private $user_pass;
-        private $user_rol;
-        private $user_color;
+        private $id_game;
+        private $game_name;
+        private $game_dess;
+        private $game_master;
+        private $game_img;
 
-        //Metods - Add new user
+        //Metods - Add new game
         //##############################################################################################
         public function add(){
-            $this->user_pass = password_hash($this->user_pass,PASSWORD_DEFAULT);
             $db = new connexio();
-            $db2 = $db->query("INSERT INTO users(`user_name`, `user_mail`, `user_pass`) "
-                    . "VALUES ('$this->user_name', '$this->user_mail', '$this->user_pass')");
+            $rtn = $db->query("INSERT INTO games(`game_name`, `game_dess`, `game_master`) "
+                    . "VALUES ('$this->game_name', '$this->game_dess', '$this->game_master')");
             $db->close();
-            return $db2;
+            return $rtn;
         }
 
-        //Metods - Mod user data by $id_user
+        //Metods - Mod Game data by $id_game and $game_master
         //##############################################################################################
-        public function moduser_name($id_user, $user_name){
+        public function modgame_name($id_game, $game_master, $game_name){
             $db = new connexio();
-            $result = $db->query("UPDATE users SET  user_name='$user_name' WHERE id_user= '$id_user'");
+            $rtn = $db->query("UPDATE games SET  game_name='$game_name' WHERE id_game= '$id_game' AND game_master= '$game_master'");
             $db->close();
-            return $result;
+            return $rtn;
         }
-        public function moduser_mail($id_user, $user_mail){
+        public function modgame_dess($id_game, $game_master, $game_dess){
             $db = new connexio();
-            $result = $db->query("UPDATE users SET  user_mail='$user_mail' WHERE id_user= '$id_user'");
+            $rtn = $db->query("UPDATE games SET  game_dess='$game_dess' WHERE id_game= '$id_game' AND game_master= '$game_master'");
             $db->close();
-            return $result;
+            return $rtn;
         }
-        public function moduser_pass($id_user, $user_pass){
+        public function modgame_img($id_game, $game_master, $game_img){
             $db = new connexio();
-            $result = $db->query("UPDATE users SET  user_pass='$user_pass' WHERE id_user= '$id_user'");
+            $rtn = $db->query("UPDATE games SET  game_img='$game_img' WHERE id_game= '$id_game' AND game_master= '$game_master'");
             $db->close();
-            return $result;
-        }
-        public function moduser_rol($id_user, $user_rol){
-            $db = new connexio();
-            $result = $db->query("UPDATE users SET  user_rol='$user_rol' WHERE id_user= '$id_user'");
-            $db->close();
-            return $result;
-        }
-        public function moduser_color($id_user, $user_color){
-            $db = new connexio();
-            $result = $db->query("UPDATE users SET  user_color='$user_color' WHERE id_user= '$id_user'");
-            $db->close();
-            return $result;
+            return $rtn;
         }
 
-        //Metods - Delete user by $id_user
+        //Metods - Delete game by $id_game and $game_master
         //##############################################################################################
-        public function delete($id_user){
+        public function deletegame($id_game, $game_master){
             $db = new connexio();
-            $result = $sql = "delete from users where id_user = $id_user";
-            $db->query($sql);
-            return $result;
-        }
-
-        //Metods - Return True if($user_name or $user_mail already exists in the DB) else Return False
-        //##############################################################################################
-        public function userexiste($user_name){
-            $db = new connexio();
-            $sql = "SELECT * FROM users WHERE user_name = '$user_name'";
-            $query = $db->query($sql);
+            $rtn = $db->query("DELETE from games where id_game = '$id_game' AND game_master= '$game_master'");
             $db->close();
-            if ($query->num_rows > 0) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        public function mailexiste($user_mail){
-            $db = new connexio();
-            $sql = "SELECT * FROM users WHERE user_mail = '$user_mail'";
-            $query = $db->query($sql);
-            $db->close();
-            if ($query->num_rows > 0) {
-                return true;
-            } else {
-                return false;
-            }
+            return $rtn;
         }
 
-        //Metods - Verify Login and return $user or null
+        //Metods - view all games
         //##############################################################################################
-        public function verify_login($user_mail,$test_pass){
-
-            $db = new connexio(); //connect
-            $sql = "SELECT * FROM users WHERE user_mail = '$user_mail'";
-            $query = $db->query($sql);
-            $db->close(); //disconect
-
-            if ($query->num_rows > 0) {
-                $obj = $query->fetch_assoc();
-                $users = new users($obj["id_user"],$obj["user_name"],$obj["user_mail"],$obj["user_pass"],$obj["user_rol"],$obj["user_color"]);
-                if(password_verify($test_pass, $users->getuser_pass())){
-                  return $users; //password valida
-                }else{
-                  return null;  //password no valida
-                }
-            } else {
-                return null; //mail no existe
-            }
-        }
-
-
         public function view_all(){
             $db = new connexio();
-            $sql = "SELECT * FROM users;";
-            $query = $db->query($sql);
+            $query = $db->query("SELECT * FROM games");
             $rtn = array();
             while($obj = $query->fetch_assoc()){
-                $users = new users($obj["id_user"],$obj["user_name"],$obj["user_mail"],$obj["user_pass"],$obj["user_rol"],$obj["user_color"]);
-                //var_dump($users);
-                array_push($rtn, $users);
+              //Get user_name of the Game_master
+              $db2 = new connexio();
+              $query2 = $db->query("SELECT user_name FROM users WHERE id_user='$obj["game_master"]'");
+              $db2->close();
+              $obj2 = $query2->fetch_assoc();
+
+              //Make game object with all data
+              $games = new games($obj["id_game"],$obj["game_name"],$obj["game_dess"],$obj2["user_name"],$obj["game_img"]);
+              array_push($rtn, $games);
+
+              //var_dump($games);
             }
             $db->close();
             return $rtn;
@@ -127,105 +74,53 @@
 
         //Metods - other [Search]
         //##############################################################################################
-        public function view_comp($id){
+        public function view_master($game_master){
             $db = new connexio();
-            $sql = "SELECT * FROM users where id_user='$id'";
-            $query = $db->query($sql);
+            $query = $db->query("SELECT * FROM games where game_master='$game_master'");
             $rtn = array();
             while($obj = $query->fetch_assoc()){
-                $users = new users($obj["user_name"],$obj["user_mail"],$obj["user_pass"],$obj["user_rol"],$obj["user_color"]);
-                //var_dump($users);
-                array_push($rtn, $users);
+                $games = new games($obj["id_game"],$obj["game_name"],$obj["game_dess"],$obj["game_master"],$obj["game_img"]);
+                array_push($rtn, $games);
+                //var_dump($games);
             }
             $db->close();
             return $rtn;
-        }
-        public function return_user($id){
-            $db = new connexio();
-            $sql = "SELECT * FROM users WHERE id_user = '$id'";
-            $query = $db->query($sql);
-            $count = 0;
-            if ($query->num_rows > 0) {
-                while($row = $query->fetch_assoc()) {
-                    $count++;
-                    $datos = $row;
-                }
-            } else {
-                $count = 0;
-            }
-            $db->close();
-            if($count == 1){
-                return $datos;
-            }else{
-                return "error";
-            }
-        }
-
-        public function buscusers($search){
-            $db = new connexio();
-            $sql = "SELECT id_user, user_name FROM users where user_name  LIKE '%".$search."%' LIMIT 5";
-            $query = $db->query($sql);
-            $rtn = array();
-            while($obj = $query->fetch_assoc()){
-                array_push($rtn, $obj);
-            }
-            $db->close();
-            return $rtn;
-        }
-        public function usercolor($id_user){
-            $db = new connexio();
-            $sql = "SELECT user_color FROM users WHERE id_user = '$id_user'";
-            $query = $db->query($sql);
-            $db->close();
-
-            if ($query->num_rows > 0) {
-                $obj = $query->fetch_assoc();
-                return $obj["user_color"];
-            } else {
-                return 0;
-            }
         }
 
         //Metods - SET
         //##############################################################################################
-        public function setid_user($id_user) {
-            $this->id_user = $id_user;
+        public function setid_game($id_game) {
+            $this->id_game = $id_game;
         }
-        public function setuser_name($user_name) {
-            $this->user_name = $user_name;
+        public function setgame_name($game_name) {
+            $this->game_name = $game_name;
         }
-        public function setuser_mail($user_mail) {
-            $this->user_mail = $user_mail;
+        public function setgame_dess($game_dess) {
+            $this->game_dess = $game_dess;
         }
-        public function setuser_pass($user_pass) {
-            $this->user_pass = $user_pass;
+        public function setgame_master($game_master) {
+            $this->game_master = $game_master;
         }
-        public function setuser_rol($user_rol) {
-            $this->user_rol = $user_rol;
-        }
-        public function setuser_color($user_color) {
-            $this->user_color = $user_color;
+        public function setgame_img($game_img) {
+            $this->game_img = $game_img;
         }
 
         //Metods - GET
         //##############################################################################################
-        public function getid_user() {
-            return $this->id_user;
+        public function getid_game() {
+            return $this->id_game;
         }
-        public function getuser_name() {
-            return $this->user_name;
+        public function getgame_name() {
+            return $this->game_name;
         }
-        public function getuser_mail() {
-            return $this->user_mail;
+        public function getgame_dess() {
+            return $this->game_dess;
         }
-        public function getuser_pass() {
-            return $this->user_pass;
+        public function getgame_master() {
+            return $this->game_master;
         }
-        public function getuser_rol() {
-            return $this->user_rol;
-        }
-        public function getuser_color() {
-            return $this->user_color;
+        public function getgame_img() {
+            return $this->game_img;
         }
 
         //##############################################################################################
@@ -240,36 +135,25 @@
             }
         }
         function __construct0(){                                                // 0 atributes
-            $this->setid_user(0);
-            $this->setuser_name("");
-            $this->setuser_mail("");
-            $this->setuser_pass("");
-            $this->setuser_rol("");
-            $this->setuser_color("");
+            $this->setid_game(0);
+            $this->setgame_name("");
+            $this->setgame_dess("");
+            $this->setgame_master("");
+            $this->getgame_img("");
         }
         function __construct3($a2, $a3, $a4){                                   // 3 atributes
-            $this->setid_user(0);
-            $this->setuser_name($a2);
-            $this->setuser_mail($a3);
-            $this->setuser_pass($a4);
-            $this->setuser_rol("");
-            $this->setuser_color("");
+            $this->setid_game(0);
+            $this->setgame_name($a2);
+            $this->setgame_dess($a3);
+            $this->setgame_master($a4);
+            $this->getgame_img("");
         }
-        function __construct5($a2, $a3, $a4, $a5, $a6){                         // 5 atributes
-            $this->setid_user(0);
-            $this->setuser_name($a2);
-            $this->setuser_mail($a3);
-            $this->setuser_pass($a4);
-            $this->setuser_rol($a5);
-            $this->setuser_color($a6);
-        }
-        function __construct6($a1, $a2, $a3, $a4, $a5, $a6){                    // 6 atributes
-            $this->setid_user($a1);
-            $this->setuser_name($a2);
-            $this->setuser_mail($a3);
-            $this->setuser_pass($a4);
-            $this->setuser_rol($a5);
-            $this->setuser_color($a6);
+        function __construct3($a1, $a2, $a3, $a4, $a5){                         // 5 atributes
+            $this->setid_game($a1);
+            $this->setgame_name($a2);
+            $this->setgame_dess($a3);
+            $this->setgame_master($a4);
+            $this->getgame_img($a5);
         }
     }
 ?>

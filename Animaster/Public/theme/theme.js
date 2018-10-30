@@ -1,13 +1,5 @@
 (function($){
     $(document).ready(function(){
-
-        //getfocus function for no autofill
-        //-----------------------------------------------
-        focusMethod = function getFocus(id) {
-          document.getElementById(id).focus();
-        }
-        $('[data-toggle="tooltip"]').tooltip();
-
         //Fullscreen Button
         //-----------------------------------------------
         if ($('[data-action="fullscreen"]')[0]) {
@@ -174,4 +166,15 @@
       $( document ).on( 'focus', ':input', function(){
           $( this ).attr( 'autocomplete', 'off' );
       });
+
+      //getfocus function for no autofill
+      //-----------------------------------------------
+      focusMethod = function getFocus(id) {
+        document.getElementById(id).focus();
+      }
+      $('[data-toggle="tooltip"]').tooltip();
+
+      //?
+      //-----------------------------------------------
+      
 })(this.jQuery);
