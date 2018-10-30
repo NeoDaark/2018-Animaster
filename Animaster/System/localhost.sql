@@ -18,6 +18,7 @@ CREATE TABLE IF NOT EXISTS Games (
   id_game       int NOT NULL AUTO_INCREMENT,
   game_name     varchar(100),
   game_dess     varchar(1000),
+  game_img      varchar(100),
   game_master   int NOT NULL,
   PRIMARY KEY (`id_game`),
   FOREIGN KEY (game_master) REFERENCES Users (id_user)

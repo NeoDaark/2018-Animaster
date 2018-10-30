@@ -37,15 +37,6 @@ include "../Public/layouts/head.php";
 			</div>
 		</div>
 
-    <div class="card">
-      <div class="card-body">
-          <h4 class="card-title">Drag and drop file upload</h4>
-          <h6 class="card-subtitle">DropzoneJS is an open source library that provides drag’n’drop file uploads with image previews.</h6>
-
-          <form class="dropzone dz-clickable" id="dropzone-upload"><div class="dz-default dz-message"><span>Drop files here to upload</span></div></form>
-      </div>
-    </div>
-
 	</div>
 
 </section>
