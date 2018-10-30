@@ -26,31 +26,38 @@ include "../Public/layouts/head.php";
 						anotify('Password is empty!', 'red');
 					}
 				}else{
-					$.ajax({
-						type: "POST",
-						url: "<?php echo $directory?>System/Protocols/Users_Signup.php",
-						data: user,
-						success: function (response) {
-							console.log(response);
-							if(response == 'fail00'){
-								anotify('Try again in a few minutes!', 'red');
-							}else if(response == 'fail01'){
-								anotify('user already exists', 'red');
-							}else if(response == 'fail02'){
-								anotify('email already exists', 'red');
-							}else if(response == 'fail03'){
-								anotify('user and email already exist', 'red');
-							}else if(response == 'succes'){
-								anotify('Welcome to Animaster!', 'green');
+          if (!$('#createinput').hasClass("isactive")){
+            $('#createinput').addClass('isactive');
+  					$.ajax({
+  						type: "POST",
+  						url: "<?php echo $directory?>System/Protocols/Users_Signup.php",
+  						data: user,
+  						success: function (response) {
+  							console.log(response);
+  							if(response == 'fail00'){
+  								anotify('Try again in a few minutes!', 'red');
+                  $('#createinput').removeClass('isactive');
+  							}else if(response == 'fail01'){
+  								anotify('user already exists', 'red');
+                  $('#createinput').removeClass('isactive');
+  							}else if(response == 'fail02'){
+  								anotify('email already exists', 'red');
+                  $('#createinput').removeClass('isactive');
+  							}else if(response == 'fail03'){
+  								anotify('user and email already exist', 'red');
+                  $('#createinput').removeClass('isactive');
+  							}else if(response == 'succes'){
+  								anotify('Welcome to Animaster!', 'green');
 
-								setInterval(function() {
-									var url = "<?php echo $directory?>home";
-									location.href=url;
-								}, 1000);
+  								setInterval(function() {
+  									var url = "<?php echo $directory?>home";
+  									location.href=url;
+  								}, 1000);
 
-							}
-						}
-					});
+  							}
+  						}
+  					});
+          }
 				}
 			});
     });

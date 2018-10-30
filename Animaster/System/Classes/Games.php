@@ -57,13 +57,14 @@
             $rtn = array();
             while($obj = $query->fetch_assoc()){
               //Get user_name of the Game_master
-              $db2 = new connexio();
-              $query2 = $db->query("SELECT user_name FROM users WHERE id_user='$obj["game_master"]'");
-              $db2->close();
-              $obj2 = $query2->fetch_assoc();
+              //$db2 = new connexio();
+              //$gm = $obj["game_master"]
+            //  $query2 = $db->query("SELECT * FROM users WHERE id_user= '$gm'");
+              //$db2->close();
+              //$obj2 = $query2->fetch_assoc();
 
               //Make game object with all data
-              $games = new games($obj["id_game"],$obj["game_name"],$obj["game_dess"],$obj2["user_name"],$obj["game_img"]);
+              $games = new games($obj["id_game"],$obj["game_name"],$obj["game_dess"],$obj["game_master"],$obj["game_img"]);
               array_push($rtn, $games);
 
               //var_dump($games);
@@ -148,7 +149,7 @@
             $this->setgame_master($a4);
             $this->getgame_img("");
         }
-        function __construct3($a1, $a2, $a3, $a4, $a5){                         // 5 atributes
+        function __construct5($a1, $a2, $a3, $a4, $a5){                         // 5 atributes
             $this->setid_game($a1);
             $this->setgame_name($a2);
             $this->setgame_dess($a3);
