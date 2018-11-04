@@ -1,0 +1,1 @@
+start C:\xampp\php\php.exe websocket_server.php
