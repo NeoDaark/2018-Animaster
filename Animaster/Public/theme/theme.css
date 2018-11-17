@@ -9,6 +9,54 @@
 body {
 	background-color: rgba(0,0,0,0.0);
 }
+div#game_img{
+	background-color: red;
+  height: 125px;
+	width: 400px;
+	overflow: hidden;
+	padding: 0;
+	margin-left: 10px;
+}
+img#game_img{
+	object-fit: none;
+	object-position: 50% 50%;
+	width: 400px;
+	height: 125px;
+}
+
+
+ul#horitzontal li{
+	display:inline;
+	padding-right: 15px;
+}
+div#game_card{
+	position: relative;
+	margin: 0;
+	margin-bottom: 10px;
+
+}
+div#game_options{
+	position:  absolute;
+	bottom: 0;
+	right: 0;
+
+}
+p#game_dess{
+	 overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 20px;     /* fallback */
+   max-height: 36px;      /* fallback */
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+
+}
+game_title{
+	display: block;
+	background-color: #9E9E9E;
+	color: white;
+	padding: 3px;
+}
 .overlay{
 	background-color: rgba(0,0,0,0.7);
 	width:100%;
@@ -38,6 +86,8 @@ html {
 	height: 100%;
 
 }
+
+
 #bgmslider{
 	display:none;
 }

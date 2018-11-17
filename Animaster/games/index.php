@@ -22,82 +22,55 @@ include "../Public/layouts/head.php";?>
 
 			<div class="card">
 				<div class="card-header">
-					<h2 class="card-title">Here is a list of the games I'm in</h2>
-					<small class="card-subtitle">Juegos en los que puedo jugar, ya sea como máster o como jugador</small>
-				</div>
-
+					<h2 class="card-title">Games where I can play as master</h2>
+        </div>
 			</div>
 
-      <div class="card-deck">
-        <div class="card">
-            <img class="card-img-top h200" src="https://i.pinimg.com/564x/b3/37/2a/b3372a118b11a4a0f5714a1aecb40dbc.jpg">
-
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <h6 class="card-subtitle">Praesent commodo cursus magna scelerisque consectetur</h6>
-                <div class="actions">
-                    <a href="#" class="actions__item zmdi zmdi-trending-up"></a>
-                    <a href="#" class="actions__item zmdi zmdi-check-all"></a>
-
-                    <div class="dropdown actions__item">
-                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert" aria-expanded="false"></i>
-                        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 25px, 0px);">
-                            <a href="#" class="dropdown-item">Refresh</a>
-                            <a href="#" class="dropdown-item">Manage Widgets</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="card-text">Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, fermentum massa justo sit amet risus. Donec sed odio dui eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      <div class="card profile" id="game_card">
+        <div class="profile__img" id="game_img">
+          <img id="game_img" src="https://i.pinimg.com/564x/b3/37/2a/b3372a118b11a4a0f5714a1aecb40dbc.jpg" alt="">
+          <a href="#" class="zmdi zmdi-camera profile__img__edit"></a>
+        </div>
+        <div class="profile__info">
+          <game_title>Aenean lacinia bibendum nulla sed consectetur.</game_title>
+          <p class="card-text" id="game_dess">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, fermentum massa justo sit amet risus. Donec sed odio dui eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <ul class="icon-list" id="horitzontal">
+            <li><i class="zmdi zmdi-phone"></i> 308-360-8938</li> <li><i class="zmdi zmdi-email"></i> malinda@inbound.plus</li>
+          </ul>
+        </div>
+        <div class="dropdown actions__item" id="game_options">
+            <i data-toggle="dropdown" class="zmdi zmdi-more-vert" aria-expanded="false"></i>
+            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 25px, 0px);">
+                <a href="#" class="dropdown-item"><i class="zmdi zmdi-play"></i> Play</a>
+                <a href="#" class="dropdown-item"><i class="zmdi zmdi-settings"></i> Settings</a>
             </div>
         </div>
-        <div class="card">
-            <img class="card-img-top h200" src="https://i.pinimg.com/564x/66/70/60/667060b5533b1e8b7ad43043b401d2e5.jpg">
+      </div>
 
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <h6 class="card-subtitle">Praesent commodo cursus magna scelerisque consectetur</h6>
-                <div class="actions">
-                    <a href="#" class="actions__item zmdi zmdi-trending-up"></a>
-                    <a href="#" class="actions__item zmdi zmdi-check-all"></a>
-
-                    <div class="dropdown actions__item">
-                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert" aria-expanded="false"></i>
-                        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 25px, 0px);">
-                            <a href="#" class="dropdown-item">Refresh</a>
-                            <a href="#" class="dropdown-item">Manage Widgets</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                        </div>
-                    </div>
-                </div>
-                <p class="card-text">Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+      <div class="card profile" id="game_card">
+        <div class="profile__img" id="game_img">
+          <img id="game_img" src="https://i-h1.pinimg.com/564x/fb/9d/cb/fb9dcb261e53abb88fecba7a868ac643.jpg" alt="">
+          <a href="#" class="zmdi zmdi-camera profile__img__edit"></a>
+        </div>
+        <div class="profile__info">
+          <game_title>Aenean lacinia bibendum nulla sed consectetur.</game_title>
+          <p class="card-text" id="game_dess">Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Donec sed odio dui. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, fermentum massa justo sit amet risus. Donec sed odio dui eget lacinia odio sem nec elit. Aenean lacinia bibendum nulla sed consectetur.</p>
+          <ul class="icon-list" id="horitzontal">
+            <li><i class="zmdi zmdi-phone"></i> 308-360-8938</li> <li><i class="zmdi zmdi-email"></i> malinda@inbound.plus</li>
+          </ul>
+        </div>
+        <div class="dropdown actions__item" id="game_options">
+            <i data-toggle="dropdown" class="zmdi zmdi-more-vert" aria-expanded="false"></i>
+            <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 25px, 0px);">
+                <a href="#" class="dropdown-item"><i class="zmdi zmdi-play"></i> Play</a>
+                <a href="#" class="dropdown-item"><i class="zmdi zmdi-settings"></i> Settings</a>
             </div>
         </div>
+      </div>
 
-        <div class="card">
-            <img class="card-img-top h200" src="https://i.pinimg.com/564x/f6/49/2e/f6492e2e97364ff21e5b22a0c2ed2df8.jpg">
 
-            <div class="card-body">
-                <h4 class="card-title">Card title</h4>
-                <h6 class="card-subtitle">Praesent commodo cursus magna scelerisque consectetur</h6>
-                <div class="actions">
-                    <a href="#" class="actions__item zmdi zmdi-trending-up"></a>
-                    <a href="#" class="actions__item zmdi zmdi-check-all"></a>
 
-                    <div class="dropdown actions__item">
-                        <i data-toggle="dropdown" class="zmdi zmdi-more-vert" aria-expanded="false"></i>
-                        <div class="dropdown-menu dropdown-menu-right" x-placement="bottom-end" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(30px, 25px, 0px);">
-                            <a href="#" class="dropdown-item">Refresh</a>
-                            <a href="#" class="dropdown-item">Manage Widgets</a>
-                            <a href="#" class="dropdown-item">Settings</a>
-                        </div>
-                    </div>
-                </div>
-                <p class="card-text">Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus.</p>
-            </div>
-        </div>
-    </div>
+
 
 			<footer class="footer hidden-xs-down">
   			<p>Animaster Inc. © 2017. All rights reserved.</p>
@@ -114,7 +87,6 @@ include "../Public/layouts/head.php";?>
   				<a class="nav-link" href="#">Contacts</a>
   			</ul>
 		  </footer>
-
 		</div>
 </section>
 
