@@ -75,13 +75,14 @@ html {
 	}
 }
 div#game_img{
-	background-color: red;
   height: 125px;
 	width: 200px;
 	min-width: 200px;
 	overflow: hidden;
 	padding: 0;
 	margin-left: 10px;
+	margin-top: 15.5px;
+	margin-bottom: 15.5px;
 }
 img#game_img{
 	object-fit: cover;
@@ -90,8 +91,6 @@ img#game_img{
 	min-width: 200px;
 	height: 125px;
 }
-
-
 ul#horitzontal li{
 	display:inline;
 	padding-right: 15px;
@@ -100,13 +99,15 @@ div#game_card{
 	position: relative;
 	margin: 0;
 	margin-bottom: 10px;
-
 }
 div#game_options{
 	position:  absolute;
-	bottom: 0;
+	bottom: 5px;
 	right: 0;
-
+}
+div#game_options button{
+	margin: 5px;
+	right: 25px;
 }
 p#game_dess{
 	 overflow: hidden;
@@ -116,7 +117,6 @@ p#game_dess{
    max-height: 36px;      /* fallback */
    -webkit-line-clamp: 2; /* number of lines to show */
    -webkit-box-orient: vertical;
-
 }
 div#game_info{
 	width: 100%;

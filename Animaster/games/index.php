@@ -82,13 +82,29 @@ include "../Public/layouts/head.php";?>
               ';
           	}
 
-            echo "<div class='card profile' id='game_card'>";
-            //var_dump($mygames);
+            echo "<div class='card profile' id='game_card'> <hr>"; 
+            //var_dump($gameslist); //  <--- Uncoment to see the object items
             echo "</div>";
 
 
           }else{
-            header('Location: search.php'); exit();
+            //echo "<script type='text/javascript'>location.href = 'search';</script>";
+            echo '
+              <div class="card profile" id="game_card">
+                <div class="profile__img" id="game_img">
+                  <img id="game_img" src="'.$dirpublic.'img/404.png" alt="">
+                </div>
+                <div class="profile__info" id="game_info">
+                  <game_title> 404 Game not Found! </game_title>
+                  <p class="card-text" id="game_dess">Please <strong>Sign In</strong> to see your games! ^^</p>
+                </div>
+                <div id="game_options">
+                    <a href="'.$directory.'account/login">
+                    <button type="button" class="btn btn-outline-dark"><i class="fas fa-sign-in-alt"></i> Sign In</button>
+                    </a>
+                </div>
+              </div>
+            ';
           }
         ?>
       </div>
