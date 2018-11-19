@@ -55,7 +55,7 @@
 					';
 				}
 				?>
-				<li class="dropdown"<?=$icons?>>
+				<li class="dropdown hidden-xs-down"<?=$icons?>>
 						<a class="waves-effect" href="#" data-toggle="dropdown" ><i class="zmdi zmdi-email"></i></a>
 						<div class="dropdown-menu dropdown-menu-right dropdown-menu--block">
 								<div class="listview listview--hover">
@@ -131,7 +131,7 @@
 						</div>
 				</li>
 
-				<li class="dropdown top-nav__notifications" <?=$icons?>>
+				<li class="dropdown top-nav__notifications hidden-xs-down" <?=$icons?>>
 						<a class="waves-effect top-nav__notify" href="#" data-toggle="dropdown">
 								<i class="zmdi zmdi-notifications"></i>
 						</a>

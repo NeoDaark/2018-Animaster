@@ -9,54 +9,6 @@
 body {
 	background-color: rgba(0,0,0,0.0);
 }
-div#game_img{
-	background-color: red;
-  height: 125px;
-	width: 400px;
-	overflow: hidden;
-	padding: 0;
-	margin-left: 10px;
-}
-img#game_img{
-	object-fit: none;
-	object-position: 50% 50%;
-	width: 400px;
-	height: 125px;
-}
-
-
-ul#horitzontal li{
-	display:inline;
-	padding-right: 15px;
-}
-div#game_card{
-	position: relative;
-	margin: 0;
-	margin-bottom: 10px;
-
-}
-div#game_options{
-	position:  absolute;
-	bottom: 0;
-	right: 0;
-
-}
-p#game_dess{
-	 overflow: hidden;
-   text-overflow: ellipsis;
-   display: -webkit-box;
-   line-height: 20px;     /* fallback */
-   max-height: 36px;      /* fallback */
-   -webkit-line-clamp: 2; /* number of lines to show */
-   -webkit-box-orient: vertical;
-
-}
-game_title{
-	display: block;
-	background-color: #9E9E9E;
-	color: white;
-	padding: 3px;
-}
 .overlay{
 	background-color: rgba(0,0,0,0.7);
 	width:100%;
@@ -87,7 +39,6 @@ html {
 
 }
 
-
 #bgmslider{
 	display:none;
 }
@@ -100,6 +51,83 @@ html {
 	pointer-events: none;
   cursor: default;
 }
+
+/* ############################################################### MyGames
+*/
+@media (max-width:767.98px){
+	.profile{
+		margin-top:75px;
+		display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+		text-align:center;
+	}
+	.profile__img img#game_img{
+		margin:0;
+		width:120px;
+		border:0px;
+		border-radius:0%
+	}
+	div#game_img{
+		margin-top:15px;
+	}
+}
+div#game_img{
+	background-color: red;
+  height: 125px;
+	width: 200px;
+	min-width: 200px;
+	overflow: hidden;
+	padding: 0;
+	margin-left: 10px;
+}
+img#game_img{
+	object-fit: cover;
+	object-position: 50% 50%;
+	width: 200px;
+	min-width: 200px;
+	height: 125px;
+}
+
+
+ul#horitzontal li{
+	display:inline;
+	padding-right: 15px;
+}
+div#game_card{
+	position: relative;
+	margin: 0;
+	margin-bottom: 10px;
+
+}
+div#game_options{
+	position:  absolute;
+	bottom: 0;
+	right: 0;
+
+}
+p#game_dess{
+	 overflow: hidden;
+   text-overflow: ellipsis;
+   display: -webkit-box;
+   line-height: 20px;     /* fallback */
+   max-height: 36px;      /* fallback */
+   -webkit-line-clamp: 2; /* number of lines to show */
+   -webkit-box-orient: vertical;
+
+}
+div#game_info{
+	width: 100%;
+}
+game_title{
+	display: block;
+	background-color: #9E9E9E;
+	color: white;
+	padding: 3px;
+}
+
 /* ############################################################### waves
 */
 .waves-effect.waves-dark-blue .waves-ripple {
